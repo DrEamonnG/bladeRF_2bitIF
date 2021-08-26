@@ -404,6 +404,7 @@ struct rxtx_data *rxtx_data_alloc(bladerf_direction dir)
     ret->file_mgmt.file   = NULL;
     ret->file_mgmt.path   = NULL;
     ret->file_mgmt.format = RXTX_FMT_BIN_SC16Q11;
+    ret->file_mgmt.if_fmt = IFTX_FMT_INVALID;
     MUTEX_INIT(&ret->file_mgmt.file_lock);
     MUTEX_INIT(&ret->file_mgmt.file_meta_lock);
 
@@ -431,7 +432,13 @@ int rxtx_startup(struct cli_state *s, bladerf_direction dir)
 
     if (rxtx_is_tx(dir)) {
         rxtx_set_state(s->tx, RXTX_STATE_INIT);
-        status = pthread_create(&s->tx->task_mgmt.thread, NULL, tx_task, s);
+
+				/* With a choice between 'tx' and 'tx2', a mechanism needs to
+				 * be added to select between 'tx_task' and 'tx2_task',
+				 * respectively. 
+				 * Alternatively, 'tx2' could be modified to also support the
+				 * standard file format as before. */        
+        status = pthread_create(&s->tx->task_mgmt.thread, NULL, tx2_task, s);
 
         if (status < 0) {
             rxtx_set_state(s->tx, RXTX_STATE_FAIL);

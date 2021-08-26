@@ -215,6 +215,7 @@ set(BLADERF_CLI_SOURCE
         src/cmd/rxtx.c
         src/cmd/trigger.c
         src/cmd/tx.c
+        src/cmd/tx2bit.c
         src/cmd/version.c
         src/cmd/xb.c
         src/cmd/xb100.c

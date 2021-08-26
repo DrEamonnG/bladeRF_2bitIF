@@ -900,6 +900,108 @@ Notes:
    checks in time-sensitive callbacks.
 
 
+tx2
+---
+
+Usage: `tx2 <start | stop | wait | config [parameters]>`
+
+Read IQ samples from the specified file and transmit them. Transmission is
+controlled and configured by one of the following:
+
+----------------------------------------------------------------------
+    Command Description
+----------- ----------------------------------------------------------
+`start`     Start transmitting samples
+
+`stop`      Stop transmitting samples
+
+`wait`      Wait for sample transmission to complete, or until a
+            specified amount of time elapses
+
+`config`    Configure sample transmission. If no parameters are
+            provided, the current parameters are printed.
+----------------------------------------------------------------------
+
+Running `tx2` without any additional commands is valid shorthand for
+`tx2 config`.
+
+The `wait` command takes an optional `timeout` parameter. This parameter
+defaults to units of milliseconds (`ms`). The timeout unit may be specified
+using the `ms` or `s` suffixes. If this parameter is not provided, the
+command will wait until the transmission completes or `Ctrl-C` is pressed.
+
+Configuration parameters take the form `param=value`, and may be specified
+in a single or multiple `tx2 config` invocations. Below is a list of
+available parameters.
+
+----------------------------------------------------------------------
+      Parameter Description
+--------------- ------------------------------------------------------
+`file`          Filename to read samples from
+
+`format`        Input file format. One of the following:
+
+                `bin`: Raw SC16 Q11 DAC samples ([-2048, 2047])
+
+`if_format`     Input file format. One of the following:
+
+                `bin`     :  Standard SC16Q11 format
+		            `c8`      :  8-bit complex samples ([-128,127])
+		            `csm`     :  Two bit complex samples sign/mag ([-3,-1,1,3])
+                `ls2`     :  Labsat2 format
+                `r8`      :  8-bit real samples ([-128,127])
+		            `rsm`     :  Two bit real samples sign/mag ([-3,-1,1,3])
+                `sc16q11` :  Standard SC16Q11 format
+
+`repeat`        The number of times the file contents should be
+                transmitted. 0 implies repeat until stopped.
+
+`delay`         The number of microseconds to delay between
+                retransmitting file contents. 0 implies no delay.
+
+`samples`       Number of samples per buffer to use in the
+                asynchronous stream. Must be divisible by 1024 and
+                >= 1024.
+
+`buffers`       Number of sample buffers to use in the asynchronous
+                stream. The min value is 4.
+
+`xfers`         Number of simultaneous transfers to allow the
+                asynchronous stream to use. This should be < the
+                `buffers` parameter.
+
+`timeout`       Data stream timeout. With no suffix, the default
+                unit is ms. The default value is 1000 ms (1 s).
+                Valid suffixes are 'ms' and 's'.
+
+`channel`       Comma-delimited list of physical RF channels to use
+----------------------------------------------------------------------
+
+Example:
+
+ * `tx2 config file=data.bin if_format=rsm repeat=2 delay=250000`
+
+    Transmitting the contents of `data.bin` two times, with a ~250ms delay
+    between transmissions.
+
+ * `tx2 config file=mimo.bin if_format=c8 repeat=0 channel=1,2`
+
+    Transmitting the contents of `mimo.bin` repeatedly, with the first channel
+    in the file mapped to channel TX1 and the second channel mapped to TX2.
+
+Notes:
+
+ * The `n`, `samples`, `buffers`, and `xfers` parameters support the
+   suffixes `K`, `M`, and `G`, which are multiples of 1024.
+ * For higher sample rates, it is advised that the input file be
+   stored in RAM (e.g. `/tmp`, `/dev/shm`) or on an SSD, rather than a
+   HDD.
+ * When using a binary format, the user is responsible for ensuring
+   that the provided data values are within the allowed range. This
+   prerequisite alleviates the need for this program to perform range
+   checks in time-sensitive callbacks.
+
+
 set
 ---
 

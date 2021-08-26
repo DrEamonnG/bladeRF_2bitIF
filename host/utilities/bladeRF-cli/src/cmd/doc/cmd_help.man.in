@@ -2,55 +2,55 @@
 [INTERACTIVE COMMANDS]
 .SS calibrate
 .PP
-Usage: \f[C]calibrate\ <operation>\ [options]\f[]
+Usage: \f[C]calibrate <operation> [options]\f[R]
 .PP
 Perform the specified transceiver calibration operation.
 .PP
 Available operations:
 .IP \[bu] 2
-LMS internal DC offset auto\-calibrations
+LMS internal DC offset auto-calibrations
 .RS 2
 .IP \[bu] 2
-\f[C]calibrate\ lms\ [show]\f[]
+\f[C]calibrate lms [show]\f[R]
 .IP \[bu] 2
-\f[C]calibrate\ lms\ tuning\ [value]\f[]
+\f[C]calibrate lms tuning [value]\f[R]
 .IP \[bu] 2
-\f[C]calibrate\ lms\ txlpf\ [<I\ filter>\ <Q\ filter>]\f[]
+\f[C]calibrate lms txlpf [<I filter> <Q filter>]\f[R]
 .IP \[bu] 2
-\f[C]calibrate\ lms\ rxlpf\ [<I\ filter>\ <Q\ filter>]\f[]
+\f[C]calibrate lms rxlpf [<I filter> <Q filter>]\f[R]
 .IP \[bu] 2
-\f[C]calibrate\ lms\ rxvga2\ [<DC\ ref>\ <I1>\ <Q1>\ <I2>\ <Q2>]\f[]
+\f[C]calibrate lms rxvga2 [<DC ref> <I1> <Q1> <I2> <Q2>]\f[R]
 .PP
-Perform the specified auto\-calibration, or all of them if none are
+Perform the specified auto-calibration, or all of them if none are
 provided.
 When values are provided, these are used instead of the results of the
-auto\-calibration procedure.
-Use \f[C]lms\ show\f[] to read and print the current LMS calibration
+auto-calibration procedure.
+Use \f[C]lms show\f[R] to read and print the current LMS calibration
 values.
 .PP
-For \f[C]rxvga2\f[], \f[C]I1\f[] and \f[C]Q1\f[] are the Stage 1 I and Q
-components respectively, and \f[C]I2\f[] and \f[C]Q2\f[] are the Stage 2
-I and Q components.
+For \f[C]rxvga2\f[R], \f[C]I1\f[R] and \f[C]Q1\f[R] are the Stage 1 I
+and Q components respectively, and \f[C]I2\f[R] and \f[C]Q2\f[R] are the
+Stage 2 I and Q components.
 .RE
 .IP \[bu] 2
 RX and TX I/Q DC offset correction parameter calibration
 .RS 2
 .IP \[bu] 2
-\f[C]calibrate\ dc\ <rx|tx>\ [<I>\ <Q>]\f[]
+\f[C]calibrate dc <rx|tx> [<I> <Q>]\f[R]
 .IP \[bu] 2
-\f[C]calibrate\ dc\ <rxtx>\f[]
+\f[C]calibrate dc <rxtx>\f[R]
 .PP
 Calibrate the DC offset correction parameters for the current frequency
 and gain settings.
 If a I/Q values are provided, they are applied directly.
-\f[C]cal\ rxtx\f[] is shorthand for \f[C]cal\ rx\f[] followed by
-\f[C]cal\ tx\f[].
+\f[C]cal rxtx\f[R] is shorthand for \f[C]cal rx\f[R] followed by
+\f[C]cal tx\f[R].
 .RE
 .IP \[bu] 2
 RX and TX I/Q balance correction parameter calibration
 .RS 2
 .IP \[bu] 2
-\f[C]calibrate\ iq\ <rx|tx>\ <gain|phase>\ <value>\f[]
+\f[C]calibrate iq <rx|tx> <gain|phase> <value>\f[R]
 .PP
 Set the specified IQ gain or phase balance parameters.
 .RE
@@ -58,13 +58,13 @@ Set the specified IQ gain or phase balance parameters.
 Generate RX or TX I/Q DC correction parameter tables
 .RS 2
 .IP \[bu] 2
-\f[C]calibrate\ table\ dc\ <rx|tx>\ [<f_min>\ <f_max>\ [f_inc]]\f[]
+\f[C]calibrate table dc <rx|tx> [<f_min> <f_max> [f_inc]]\f[R]
 .PP
 Generate and write an I/Q correction parameter table to the current
-working directory, in a file named \f[C]<serial>_dc_<rx|tx>.tbl\f[].
-\f[C]f_min\f[] and \f[C]f_max\f[] are min and max frequencies to include
-in the table.
-\f[C]f_inc\f[] is the frequency increment.
+working directory, in a file named \f[C]<serial>_dc_<rx|tx>.tbl\f[R].
+\f[C]f_min\f[R] and \f[C]f_max\f[R] are min and max frequencies to
+include in the table.
+\f[C]f_inc\f[R] is the frequency increment.
 .PP
 By default, tables are generated over the entire frequency range, in 10
 MHz steps.
@@ -74,43 +74,43 @@ Generate RX or TX I/Q DC correction parameter tables for AGC Look Up
 Table
 .RS 2
 .IP \[bu] 2
-\f[C]calibrate\ table\ agc\ <rx|tx>\ [<f_min>\ <f_max>\ [f_inc]]\f[]
+\f[C]calibrate table agc <rx|tx> [<f_min> <f_max> [f_inc]]\f[R]
 .PP
-Similar usage as \f[C]calibrate\ table\ dc\f[] except the call will set
-gains to the AGC\[aq]s base gain value before running
-\f[C]calibrate\ table\ dc\f[].
+Similar usage as \f[C]calibrate table dc\f[R] except the call will set
+gains to the AGC\[cq]s base gain value before running
+\f[C]calibrate table dc\f[R].
 .RE
 .SS clear
 .PP
-Usage: \f[C]clear\f[]
+Usage: \f[C]clear\f[R]
 .PP
 Clears the screen.
 .SS echo
 .PP
-Usage: \f[C]echo\ [arg\ 1]\ [arg\ 2]\ ...\ [arg\ n]\f[]
+Usage: \f[C]echo [arg 1] [arg 2] ... [arg n]\f[R]
 .PP
 Echo each argument on a new line.
 .SS erase
 .PP
-Usage: \f[C]erase\ <offset>\ <count>\f[]
+Usage: \f[C]erase <offset> <count>\f[R]
 .PP
 Erase specified erase blocks SPI flash.
 .IP \[bu] 2
-\f[C]<offset>\f[] \- Erase block offset
+\f[C]<offset>\f[R] - Erase block offset
 .IP \[bu] 2
-\f[C]<count>\f[] \- Number of erase blocks to erase
+\f[C]<count>\f[R] - Number of erase blocks to erase
 .SS flash_backup
 .PP
-Usage: \f[C]flash_backup\ <file>\ (<type>\ |\ <address>\ <length>)\f[]
+Usage: \f[C]flash_backup <file> (<type> | <address> <length>)\f[R]
 .PP
 Back up flash data to the specified file.
 This command takes either two or four arguments.
-The two\-argument invocation is generally recommended for
-non\-development use.
+The two-argument invocation is generally recommended for non-development
+use.
 .PP
 Parameters:
 .IP \[bu] 2
-\f[C]<type>\f[] \- Type of backup.
+\f[C]<type>\f[R] - Type of backup.
 .RS 2
 .PP
 This selects the appropriate address and length values based upon the
@@ -120,7 +120,7 @@ Valid options are:
 .PP
 .TS
 tab(@);
-rw(11.7n) lw(52.5n).
+rw(11.7n) lw(53.5n).
 T{
 Option
 T}@T{
@@ -128,94 +128,94 @@ Description
 T}
 _
 T{
-\f[C]cal\f[]
+\f[C]cal\f[R]
 T}@T{
 Calibration data
 T}
 T{
-\f[C]fw\f[]
+\f[C]fw\f[R]
 T}@T{
 Firmware
 T}
 T{
-\f[C]fpga40\f[]
+\f[C]fpga40\f[R]
 T}@T{
 Metadata and bitstream for 40 kLE FPGA
 T}
 T{
-\f[C]fpga115\f[]
+\f[C]fpga115\f[R]
 T}@T{
 Metadata and bitstream for 115 kLE FPGA
 T}
 T{
-\f[C]fpgaA4\f[]
+\f[C]fpgaA4\f[R]
 T}@T{
 Metadata and bitstream for 49 kLE (A4) FPGA
 T}
 T{
-\f[C]fpgaA9\f[]
+\f[C]fpgaA9\f[R]
 T}@T{
 Metadata and bitstream for 301 kLE (A9) FPGA
 T}
 .TE
 .RE
 .IP \[bu] 2
-\f[C]<address>\f[] \- Address of data to back up.
-Must be erase block\-aligned.
+\f[C]<address>\f[R] - Address of data to back up.
+Must be erase block-aligned.
 .IP \[bu] 2
-\f[C]<len>\f[] \- Length of region to back up.
-Must be erase block\-aligned.
+\f[C]<len>\f[R] - Length of region to back up.
+Must be erase block-aligned.
 .PP
 Note: When an address and length are provided, the image type will
-default to \f[C]raw\f[].
+default to \f[C]raw\f[R].
 .PP
 Examples:
 .IP \[bu] 2
-\f[C]flash_backup\ cal.bin\ cal\f[]
+\f[C]flash_backup cal.bin cal\f[R]
 .RS 2
 .PP
 Backs up the calibration data region.
 .RE
 .IP \[bu] 2
-\f[C]flash_backup\ cal_raw.bin\ 0x30000\ 0x10000\f[]
+\f[C]flash_backup cal_raw.bin 0x30000 0x10000\f[R]
 .RS 2
 .PP
 Backs up the calibration region as a raw data image.
 .RE
 .SS flash_image
 .PP
-Usage: \f[C]flash_image\ <image>\ [output\ options]\f[]
+Usage: \f[C]flash_image <image> [output options]\f[R]
 .PP
-Print a flash image\[aq]s metadata or create a new flash image.
+Print a flash image\[cq]s metadata or create a new flash image.
 When provided with the name of a flash image file as the only argument,
 this command will print the metadata contents of the image.
 .PP
 The following options may be used to create a new flash image.
 .IP \[bu] 2
-\f[C]data=<file>\f[]
+\f[C]data=<file>\f[R]
 .RS 2
 .PP
 File to containing data to store in the image.
 .RE
 .IP \[bu] 2
-\f[C]address=<addr>\f[]
+\f[C]address=<addr>\f[R]
 .RS 2
 .PP
 Flash address.
-The default depends upon \f[C]type\f[] parameter.
+The default depends upon \f[C]type\f[R] parameter.
 .RE
 .IP \[bu] 2
-\f[C]type=<type>\f[]
+\f[C]type=<type>\f[R]
 .RS 2
 .PP
 Type of flash image.
-Defaults to \f[C]raw\f[].
+Defaults to \f[C]raw\f[R].
 .PP
 Valid options are:
 .PP
 .TS
 tab(@);
-rw(11.7n) lw(52.5n).
+rw(11.7n) lw(53.5n).
 T{
 Option
 T}@T{
@@ -223,37 +223,37 @@ Description
 T}
 _
 T{
-\f[C]cal\f[]
+\f[C]cal\f[R]
 T}@T{
 Calibration data
 T}
 T{
-\f[C]fw\f[]
+\f[C]fw\f[R]
 T}@T{
 Firmware
 T}
 T{
-\f[C]fpga40\f[]
+\f[C]fpga40\f[R]
 T}@T{
 Metadata and bitstream for 40 kLE FPGA
 T}
 T{
-\f[C]fpga115\f[]
+\f[C]fpga115\f[R]
 T}@T{
 Metadata and bitstream for 115 kLE FPGA
 T}
 T{
-\f[C]fpgaA4\f[]
+\f[C]fpgaA4\f[R]
 T}@T{
 Metadata and bitstream for 49 kLE (A4) FPGA
 T}
 T{
-\f[C]fpgaA9\f[]
+\f[C]fpgaA9\f[R]
 T}@T{
 Metadata and bitstream for 301 kLE (A9) FPGA
 T}
 T{
-\f[C]raw\f[]
+\f[C]raw\f[R]
 T}@T{
 Raw data.
 The address and length parameters must be provided if this type is
@@ -262,7 +262,7 @@ T}
 .TE
 .RE
 .IP \[bu] 2
-\f[C]serial=<serial>\f[]
+\f[C]serial=<serial>\f[R]
 .RS 2
 .PP
 Serial # to store in image.
@@ -271,65 +271,65 @@ Defaults to zeros.
 .SS flash_init_cal
 .PP
 Usage:
-\f[C]flash_init_cal\ <fpga_size>\ <vctcxo_trim>\ [<output_file>]\f[]
+\f[C]flash_init_cal <fpga_size> <vctcxo_trim> [<output_file>]\f[R]
 .PP
 Create and write a new calibration data region to the currently opened
 device, or to a file.
 Be sure to back up calibration data prior to running this command.
-(See the \f[C]flash_backup\f[] command.)
+(See the \f[C]flash_backup\f[R] command.)
 .IP \[bu] 2
-\f[C]<fpga_size>\f[]
+\f[C]<fpga_size>\f[R]
 .RS 2
 .PP
 Either 40 or 115, depending on the device model.
 .RE
 .IP \[bu] 2
-\f[C]<vctcxo_trim>\f[]
+\f[C]<vctcxo_trim>\f[R]
 .RS 2
 .PP
-VCTCXO/DAC trim value (\f[C]0x0\f[]\-\f[C]0xffff\f[])
+VCTCXO/DAC trim value (\f[C]0x0\f[R]-\f[C]0xffff\f[R])
 .RE
 .IP \[bu] 2
-\f[C]<output_file>\f[]
+\f[C]<output_file>\f[R]
 .RS 2
 .PP
 File to write calibration data to.
 When this argument is provided, no data will be written to the
-device\[aq]s flash.
+device\[cq]s flash.
 .RE
 .SS flash_restore
 .PP
-Usage: \f[C]flash_restore\ <file>\ [<address>\ <length>]\f[]
+Usage: \f[C]flash_restore <file> [<address> <length>]\f[R]
 .PP
 Restore flash data from a file, optionally overriding values in the
 image metadata.
 .IP \[bu] 2
-\f[C]<address>\f[]
+\f[C]<address>\f[R]
 .RS 2
 .PP
 Defaults to the address specified in the provided flash image file.
 .RE
 .IP \[bu] 2
-\f[C]<length>\f[]
+\f[C]<length>\f[R]
 .RS 2
 .PP
 Defaults to length of the data in the provided image file.
 .RE
 .SS fw_log
 .PP
-Usage: \f[C]fw_log\f[] [filename]
+Usage: \f[C]fw_log\f[R] [filename]
 .PP
-Read the contents of the device\[aq]s firmware log and write it to the
+Read the contents of the device\[cq]s firmware log and write it to the
 specified file.
 If no filename is specified, the log content is written to stdout.
 .SS help
 .PP
-Usage: \f[C]help\ [<command>]\f[]
+Usage: \f[C]help [<command>]\f[R]
 .PP
 Provides extended help, like this, on any command.
 .SS info
 .PP
-Usage: \f[C]info\f[]
+Usage: \f[C]info\f[R]
 .PP
 Prints the following information about an opened device:
 .IP \[bu] 2
@@ -348,7 +348,7 @@ Backend (Denotes which device interface code is being used.)
 Instance number
 .SS jump_to_boot
 .PP
-Usage: \f[C]jump_to_boot\f[]
+Usage: \f[C]jump_to_boot\f[R]
 .PP
 Clear out a FW signature word in flash and jump to FX3 bootloader.
 .PP
@@ -356,49 +356,49 @@ The device will continue to boot into the FX3 bootloader across power
 cycles until new firmware is written to the device.
 .SS load
 .PP
-Usage: \f[C]load\ <fpga|fx3>\ <filename>\f[]
+Usage: \f[C]load <fpga|fx3> <filename>\f[R]
 .PP
-Load an FPGA bitstream or program the FX3\[aq]s SPI flash.
+Load an FPGA bitstream or program the FX3\[cq]s SPI flash.
 .SS xb
 .PP
-Usage: \f[C]xb\ <board_model>\ <subcommand>\ [parameters]\f[]
+Usage: \f[C]xb <board_model> <subcommand> [parameters]\f[R]
 .PP
 Enable or configure an expansion board.
 .PP
-Valid values for \f[C]board_model\f[]:
+Valid values for \f[C]board_model\f[R]:
 .IP \[bu] 2
-\f[C]100\f[]
+\f[C]100\f[R]
 .RS 2
 .PP
-XB\-100 GPIO expansion board
+XB-100 GPIO expansion board
 .RE
 .IP \[bu] 2
-\f[C]200\f[]
+\f[C]200\f[R]
 .RS 2
 .PP
-XB\-200 LF/MF/HF/VHF transverter expansion board
+XB-200 LF/MF/HF/VHF transverter expansion board
 .RE
 .IP \[bu] 2
-\f[C]300\f[]
+\f[C]300\f[R]
 .RS 2
 .PP
-XB\-300 amplifier board
+XB-300 amplifier board
 .RE
 .PP
 Common subcommands:
 .IP \[bu] 2
-\f[C]enable\f[]
+\f[C]enable\f[R]
 .RS 2
 .PP
-Enable the XB\-100, XB\-200, or XB\-300 expansion board.
+Enable the XB-100, XB-200, or XB-300 expansion board.
 .RE
 .PP
-XB\-200 subcommands:
+XB-200 subcommands:
 .IP \[bu] 2
-\f[C]filter\ [rx|tx]\ [50|144|222|custom|auto_1db|auto_3db]\f[]
+\f[C]filter [rx|tx] [50|144|222|custom|auto_1db|auto_3db]\f[R]
 .RS 2
 .PP
-Selects the specified RX or TX filter on the XB\-200 board.
+Selects the specified RX or TX filter on the XB-200 board.
 Below are descriptions of each of the filter options.
 .IP \[bu] 2
 50
@@ -406,8 +406,8 @@ Below are descriptions of each of the filter options.
 .IP
 .nf
 \f[C]
-Select\ the\ 50\-54\ MHz\ (6\ meter\ band)\ filter.
-\f[]
+Select the 50-54 MHz (6 meter band) filter.
+\f[R]
 .fi
 .RE
 .IP \[bu] 2
@@ -416,8 +416,8 @@ Select\ the\ 50\-54\ MHz\ (6\ meter\ band)\ filter.
 .IP
 .nf
 \f[C]
-Select\ the\ 144\-148\ MHz\ (2\ meter\ band)\ filter.
-\f[]
+Select the 144-148 MHz (2 meter band) filter.
+\f[R]
 .fi
 .RE
 .IP \[bu] 2
@@ -426,10 +426,10 @@ Select\ the\ 144\-148\ MHz\ (2\ meter\ band)\ filter.
 .IP
 .nf
 \f[C]
-Select\ the\ 222\-225\ MHz\ (1.25\ meter\ band)\ filter.\ Realistically,
-this\ filter\ option\ is\ actually\ slightly\ wider,\ covering
-206\ MHz\ \-\ 235\ MHz.
-\f[]
+Select the 222-225 MHz (1.25 meter band) filter. Realistically,
+this filter option is actually slightly wider, covering
+206 MHz - 235 MHz.
+\f[R]
 .fi
 .RE
 .IP \[bu] 2
@@ -438,12 +438,12 @@ custom
 .IP
 .nf
 \f[C]
-Selects\ the\ custom\ filter\ path.\ The\ user\ should\ connect\ a\ filter
-along\ the\ corresponding\ FILT\ and\ FILT\-ANT\ connections\ when\ using
-this\ option.\ \ Alternatively\ one\ may\ jumper\ the\ FILT\ and\ FILT\-ANT
-connections\ to\ achieve\ "no\ filter"\ for\ reception.\ (However,\ this\ is
-_highly_\ discouraged\ for\ transmissions.)
-\f[]
+Selects the custom filter path. The user should connect a filter
+along the corresponding FILT and FILT-ANT connections when using
+this option.  Alternatively one may jumper the FILT and FILT-ANT
+connections to achieve \[dq]no filter\[dq] for reception. (However, this is
+_highly_ discouraged for transmissions.)
+\f[R]
 .fi
 .RE
 .IP \[bu] 2
@@ -452,10 +452,10 @@ auto_1db
 .IP
 .nf
 \f[C]
-Automatically\ selects\ one\ of\ the\ above\ choices\ based\ upon\ frequency
-and\ the\ filters\[aq]\ 1dB\ points.\ The\ custom\ path\ is\ used\ for\ cases
-that\ are\ not\ associated\ with\ the\ on\-board\ filters.
-\f[]
+Automatically selects one of the above choices based upon frequency
+and the filters\[aq] 1dB points. The custom path is used for cases
+that are not associated with the on-board filters.
+\f[R]
 .fi
 .RE
 .IP \[bu] 2
@@ -464,111 +464,111 @@ auto_3db
 .IP
 .nf
 \f[C]
-Automatically\ selects\ one\ of\ the\ above\ choices\ based\ upon\ frequency
-and\ the\ filters\[aq]\ 3dB\ points.\ The\ custom\ path\ is\ used\ for\ cases
-that\ are\ not\ associated\ with\ the\ on\-board\ filters.
-\f[]
+Automatically selects one of the above choices based upon frequency
+and the filters\[aq] 3dB points. The custom path is used for cases
+that are not associated with the on-board filters.
+\f[R]
 .fi
 .RE
 .RE
 .PP
-XB\-300 subcommands:
+XB-300 subcommands:
 .IP \[bu] 2
-\f[C]<pa|lna|aux>\ [on|off]\f[]
+\f[C]<pa|lna|aux> [on|off]\f[R]
 .RS 2
 .PP
-Enable or disable the power amplifier (PA), low\-noise amplifier (lna)
-or auxillary LNA (aux).
+Enable or disable the power amplifier (PA), low-noise amplifier (lna) or
+auxillary LNA (aux).
 The current state if the specified device is printed if [on|off] is not
 specified.
 .PP
-Note: The auxillary path on the XB\-300 is not populated with components
-by default; the \f[C]aux\f[] control will have no effect upon the RX
+Note: The auxillary path on the XB-300 is not populated with components
+by default; the \f[C]aux\f[R] control will have no effect upon the RX
 signal.
 This option is available for users to modify their board with custom
 hardware.
 .RE
 .IP \[bu] 2
-\f[C]<pwr>\f[]
+\f[C]<pwr>\f[R]
 .RS 2
 .PP
 Read the current Power Detect (PDET) voltage and compute the output
 power.
 .RE
 .IP \[bu] 2
-\f[C]trx\ <rx|tx>\f[]
+\f[C]trx <rx|tx>\f[R]
 .RS 2
 .PP
-The default XB\-300 hardware configuration includes separate RX and TX
+The default XB-300 hardware configuration includes separate RX and TX
 paths.
 However, users wishing to use only a single antenna for TRX can do so
-via a modification to resistor population options on the XB\-300 and use
+via a modification to resistor population options on the XB-300 and use
 this command to switch between RX an TX operation.
 (See R8, R10, and R23 on the schematic.)
 .RE
 .PP
 Examples:
 .IP \[bu] 2
-\f[C]xb\ 200\ enable\f[]
+\f[C]xb 200 enable\f[R]
 .RS 2
 .PP
-Enables and configures the XB\-200 transverter expansion board.
+Enables and configures the XB-200 transverter expansion board.
 .RE
 .IP \[bu] 2
-\f[C]xb\ 200\ filter\ rx\ 144\f[]
+\f[C]xb 200 filter rx 144\f[R]
 .RS 2
 .PP
-Selects the 144\-148 MHz receive filter on the XB\-200 transverter
+Selects the 144-148 MHz receive filter on the XB-200 transverter
 expansion board.
 .RE
 .IP \[bu] 2
-\f[C]xb\ 300\ enable\f[]
+\f[C]xb 300 enable\f[R]
 .RS 2
 .PP
-Enables and configures the use of GPIOs to interact with the XB\-300.
+Enables and configures the use of GPIOs to interact with the XB-300.
 The PA and LNA will disabled by default.
 .RE
 .IP \[bu] 2
-\f[C]xb\ 300\ lna\ on\f[]
+\f[C]xb 300 lna on\f[R]
 .RS 2
 .PP
-Enables the RX LNA on the XB\-300.
+Enables the RX LNA on the XB-300.
 LED D1 (green) is illuminated when the LNA is enabled, and off when it
 is disabled.
 .RE
 .IP \[bu] 2
-\f[C]xb\ 300\ pa\ off\f[]
+\f[C]xb 300 pa off\f[R]
 .RS 2
 .PP
-Disables the TX PA on the XB\-300.
+Disables the TX PA on the XB-300.
 LED D2 (blue) is illuminated when the PA is enabled, and off when it is
 disabled.
 .RE
 .SS mimo
 .PP
-Usage: \f[C]mimo\ [master\ |\ slave]\f[]
+Usage: \f[C]mimo [master | slave]\f[R]
 .PP
 Modify device MIMO operation.
 .PP
 IMPORTANT: This command is deprecated and has been superseded by
-\f[C]"print/set\ smb_mode"\f[].
-For usage text, run: "\f[C]set\ smb_mode\f[]"
+\f[C]\[dq]print/set smb_mode\[dq]\f[R].
+For usage text, run: \[lq]\f[C]set smb_mode\f[R]\[rq]
 .SS open
 .PP
-Usage: \f[C]open\ [device\ identifiers]\f[]
+Usage: \f[C]open [device identifiers]\f[R]
 .PP
 Open the specified device for use with successive commands.
 Any previously opened device will be closed.
 .PP
 The general form of the device identifier string is:
 .PP
-\f[C]<backend>:[device=<bus>:<addr>]\ [instance=<n>]\ [serial=<serial>]\f[]
+\f[C]<backend>:[device=<bus>:<addr>] [instance=<n>] [serial=<serial>]\f[R]
 .PP
-See the \f[C]bladerf_open()\f[] documentation in libbladeRF for the
+See the \f[C]bladerf_open()\f[R] documentation in libbladeRF for the
 complete device specifier format.
 .SS peek
 .PP
-Usage: \f[C]peek\ <rfic|pll|dac|lms|si>\ <address>\ [num_addresses]\f[]
+Usage: \f[C]peek <rfic|pll|dac|lms|si> <address> [num_addresses]\f[R]
 .PP
 The peek command can read any of the devices hanging off the FPGA.
 This includes the:
@@ -578,7 +578,7 @@ bladeRF 1: LMS6002D transceiver, VCTCXO trim DAC, Si5338 clock generator
 bladeRF 2: AD9361 transceiver, VCTCXO trim DAC, ADF4002 frequency
 synthesizer
 .PP
-If \f[C]num_addresses\f[] is supplied, the address is incremented by 1
+If \f[C]num_addresses\f[R] is supplied, the address is incremented by 1
 and another peek is performed for that many addresses.
 .PP
 Valid Address Ranges:
@@ -593,27 +593,27 @@ Address Range
 T}
 _
 T{
-\f[C]rfic\f[]
+\f[C]rfic\f[R]
 T}@T{
 0 to 0x3F7 (1015)
 T}
 T{
-\f[C]pll\f[]
+\f[C]pll\f[R]
 T}@T{
 0 to 3
 T}
 T{
-\f[C]dac\f[]
+\f[C]dac\f[R]
 T}@T{
 0 to 255
 T}
 T{
-\f[C]lms\f[]
+\f[C]lms\f[R]
 T}@T{
 0 to 127
 T}
 T{
-\f[C]si\f[]
+\f[C]si\f[R]
 T}@T{
 0 to 255
 T}
@@ -621,10 +621,10 @@ T}
 .PP
 Example:
 .IP \[bu] 2
-\f[C]peek\ si\ ...\f[]
+\f[C]peek si ...\f[R]
 .SS poke
 .PP
-Usage: \f[C]poke\ <rfic|pll|dac|lms|si>\ <address>\ <data>\f[]
+Usage: \f[C]poke <rfic|pll|dac|lms|si> <address> <data>\f[R]
 .PP
 The poke command can write any of the devices hanging off the FPGA.
 This includes the:
@@ -646,27 +646,27 @@ Address Range
 T}
 _
 T{
-\f[C]rfic\f[]
+\f[C]rfic\f[R]
 T}@T{
 0 to 0x3F7 (1015)
 T}
 T{
-\f[C]pll\f[]
+\f[C]pll\f[R]
 T}@T{
 0 to 3
 T}
 T{
-\f[C]dac\f[]
+\f[C]dac\f[R]
 T}@T{
 0 to 255
 T}
 T{
-\f[C]lms\f[]
+\f[C]lms\f[R]
 T}@T{
 0 to 127
 T}
 T{
-\f[C]si\f[]
+\f[C]si\f[R]
 T}@T{
 0 to 255
 T}
@@ -674,12 +674,12 @@ T}
 .PP
 Example:
 .IP \[bu] 2
-\f[C]poke\ lms\ ...\f[]
+\f[C]poke lms ...\f[R]
 .SS print
 .PP
-Usage: \f[C]print\ [parameter]\f[]
+Usage: \f[C]print [parameter]\f[R]
 .PP
-The \f[C]print\f[] command takes a parameter to print.
+The \f[C]print\f[R] command takes a parameter to print.
 Available parameters are listed below.
 If no parameter is specified, all parameters are printed.
 .PP
@@ -687,7 +687,7 @@ Common parameters:
 .PP
 .TS
 tab(@);
-rw(13.6n) lw(54.4n).
+rw(13.6n) lw(55.4n).
 T{
 Parameter
 T}@T{
@@ -695,62 +695,62 @@ Description
 T}
 _
 T{
-\f[C]bandwidth\f[]
+\f[C]bandwidth\f[R]
 T}@T{
 Bandwidth settings
 T}
 T{
-\f[C]frequency\f[]
+\f[C]frequency\f[R]
 T}@T{
 Frequency settings
 T}
 T{
-\f[C]agc\f[]
+\f[C]agc\f[R]
 T}@T{
 Automatic gain control
 T}
 T{
-\f[C]loopback\f[]
+\f[C]loopback\f[R]
 T}@T{
 Loopback settings
 T}
 T{
-\f[C]rx_mux\f[]
+\f[C]rx_mux\f[R]
 T}@T{
 FPGA RX FIFO input mux setting
 T}
 T{
-\f[C]gain\f[]
+\f[C]gain\f[R]
 T}@T{
 Gain settings
 T}
 T{
-\f[C]samplerate\f[]
+\f[C]samplerate\f[R]
 T}@T{
 Samplerate settings
 T}
 T{
-\f[C]trimdac\f[]
+\f[C]trimdac\f[R]
 T}@T{
 VCTCXO Trim DAC settings
 T}
 T{
-\f[C]tuning_mode\f[]
+\f[C]tuning_mode\f[R]
 T}@T{
 Tuning mode settings
 T}
 T{
-\f[C]hardware\f[]
+\f[C]hardware\f[R]
 T}@T{
-Low\-level hardware status
+Low-level hardware status
 T}
 .TE
 .PP
-BladeRF1\-only parameters:
+BladeRF1-only parameters:
 .PP
 .TS
 tab(@);
-rw(13.6n) lw(54.4n).
+rw(13.6n) lw(55.4n).
 T{
 Parameter
 T}@T{
@@ -758,67 +758,67 @@ Description
 T}
 _
 T{
-\f[C]gpio\f[]
+\f[C]gpio\f[R]
 T}@T{
-FX3 <\-> FPGA GPIO state
+FX3 <-> FPGA GPIO state
 T}
 T{
-\f[C]lnagain\f[]
+\f[C]lnagain\f[R]
 T}@T{
 RX LNA gain, in dB (deprecated)
 T}
 T{
-\f[C]rxvga1\f[]
+\f[C]rxvga1\f[R]
 T}@T{
 RXVGA1 gain, in dB (deprecated)
 T}
 T{
-\f[C]rxvga2\f[]
+\f[C]rxvga2\f[R]
 T}@T{
 RXVGA2 gain, in dB (deprecated)
 T}
 T{
-\f[C]txvga1\f[]
+\f[C]txvga1\f[R]
 T}@T{
 TXVGA1 gain, in dB (deprecated)
 T}
 T{
-\f[C]txvga2\f[]
+\f[C]txvga2\f[R]
 T}@T{
 TXVGA2 gain, in dB (deprecated)
 T}
 T{
-\f[C]sampling\f[]
+\f[C]sampling\f[R]
 T}@T{
 External or internal sampling mode
 T}
 T{
-\f[C]smb_mode\f[]
+\f[C]smb_mode\f[R]
 T}@T{
 SMB clock port mode of operation
 T}
 T{
-\f[C]vctcxo_tamer\f[]
+\f[C]vctcxo_tamer\f[R]
 T}@T{
 Current VCTCXO tamer mode
 T}
 T{
-\f[C]xb_gpio\f[]
+\f[C]xb_gpio\f[R]
 T}@T{
 Expansion board GPIO values
 T}
 T{
-\f[C]xb_gpio_dir\f[]
+\f[C]xb_gpio_dir\f[R]
 T}@T{
 Expansion board GPIO direction (1=output, 0=input)
 T}
 .TE
 .PP
-BladeRF2\-only parameters:
+BladeRF2-only parameters:
 .PP
 .TS
 tab(@);
-rw(13.6n) lw(54.4n).
+rw(13.6n) lw(55.4n).
 T{
 Parameter
 T}@T{
@@ -826,91 +826,92 @@ Description
 T}
 _
 T{
-\f[C]clock_sel\f[]
+\f[C]clock_sel\f[R]
 T}@T{
 System clock selection
 T}
 T{
-\f[C]clock_out\f[]
+\f[C]clock_out\f[R]
 T}@T{
 Clock output selection
 T}
 T{
-\f[C]rssi\f[]
+\f[C]rssi\f[R]
 T}@T{
 Received signal strength indication
 T}
 T{
-\f[C]clock_ref\f[]
+\f[C]clock_ref\f[R]
 T}@T{
 ADF4002 chip status
 T}
 T{
-\f[C]refin_freq\f[]
+\f[C]refin_freq\f[R]
 T}@T{
 ADF4002 reference clock frequency
 T}
 T{
-\f[C]biastee\f[]
+\f[C]biastee\f[R]
 T}@T{
-Current bias\-tee status
+Current bias-tee status
 T}
 T{
-\f[C]filter\f[]
+\f[C]filter\f[R]
 T}@T{
 RFIC FIR filter selection
 T}
 .TE
 .SS probe
 .PP
-Usage: \f[C]probe\ [strict]\f[]
+Usage: \f[C]probe [strict]\f[R]
 .PP
 Search for attached bladeRF device and print a list of results.
 .PP
-Without specifying \f[C]strict\f[], the lack of any available devices is
-not considered an error.
+Without specifying \f[C]strict\f[R], the lack of any available devices
+is not considered an error.
 .PP
-When provided the optional \f[C]strict\f[] argument, this command will
+When provided the optional \f[C]strict\f[R] argument, this command will
 treat the situation where no devices are found as an error, causing
-scripts or lists of commands provided via the \f[C]\-e\f[] command line
+scripts or lists of commands provided via the \f[C]-e\f[R] command line
 argument to terminate immediately.
 .SS quit
 .PP
-Usage: \f[C]quit\f[]
+Usage: \f[C]quit\f[R]
 .PP
 Exit the CLI.
 .SS recover
 .PP
-Usage: \f[C]recover\ [<bus>\ <address>\ <firmware\ file>]\f[]
+Usage: \f[C]recover [<bus> <address> <firmware file>]\f[R]
 .PP
 Load firmware onto a device running in bootloader mode, or list all
 devices currently in bootloader mode.
 .PP
 With no arguments, this command lists the USB bus and address for
-FX3\-based devices running in bootloader mode.
+FX3-based devices running in bootloader mode.
 .PP
 When provided a bus, address, and path to a firmware file, the specified
 device will be loaded with and begin executing the provided firmware.
 .PP
-In most cases, after successfully loading firmware into the device\[aq]s
-RAM, users should open the device with the "\f[C]open\f[]" command, and
-write the firmware to flash via "\f[C]load\ fx3\ <firmware\ file>\f[]"
+In most cases, after successfully loading firmware into the device\[cq]s
+RAM, users should open the device with the \[lq]\f[C]open\f[R]\[rq]
+command, and write the firmware to flash via
+\[lq]\f[C]load fx3 <firmware file>\f[R]\[rq]
 .SS run
 .PP
-Usage: \f[C]run\ <script>\f[]
+Usage: \f[C]run <script>\f[R]
 .PP
 Run the provided script.
 .SS rx
 .PP
 Usage:
-\f[C]rx\ <start\ |\ stop\ |\ wait\ |\ config\ [param=val\ [param=val\ [...]]>\f[]
+\f[C]rx <start | stop | wait | config [param=val [param=val [...]]>\f[R]
 .PP
 Receive IQ samples and write them to the specified file.
 Reception is controlled and configured by one of the following:
 .PP
 .TS
 tab(@);
-rw(11.7n) lw(56.4n).
+rw(11.7n) lw(57.4n).
 T{
 Command
 T}@T{
@@ -918,46 +919,47 @@ Description
 T}
 _
 T{
-\f[C]start\f[]
+\f[C]start\f[R]
 T}@T{
 Start receiving samples
 T}
 T{
-\f[C]stop\f[]
+\f[C]stop\f[R]
 T}@T{
 Stop receiving samples
 T}
 T{
-\f[C]wait\f[]
+\f[C]wait\f[R]
 T}@T{
 Wait for sample transmission to complete, or until a specified amount of
 time elapses
 T}
 T{
-\f[C]config\f[]
+\f[C]config\f[R]
 T}@T{
 Configure sample reception.
 If no parameters are provided, the current parameters are printed.
 T}
 .TE
 .PP
-Running \f[C]rx\f[] without any additional commands is valid shorthand
-for \f[C]rx\ config\f[].
+Running \f[C]rx\f[R] without any additional commands is valid shorthand
+for \f[C]rx config\f[R].
 .PP
-The \f[C]wait\f[] command takes an optional \f[C]timeout\f[] parameter.
-This parameter defaults to units of milliseconds (\f[C]ms\f[]).
-The timeout unit may be specified using the \f[C]ms\f[] or \f[C]s\f[]
+The \f[C]wait\f[R] command takes an optional \f[C]timeout\f[R]
+parameter.
+This parameter defaults to units of milliseconds (\f[C]ms\f[R]).
+The timeout unit may be specified using the \f[C]ms\f[R] or \f[C]s\f[R]
 suffixes.
 If this parameter is not provided, the command will wait until the
-reception completes or \f[C]Ctrl\-C\f[] is pressed.
+reception completes or \f[C]Ctrl-C\f[R] is pressed.
 .PP
-Configuration parameters take the form \f[C]param=value\f[], and may be
-specified in a single or multiple \f[C]rx\ config\f[] invocations.
+Configuration parameters take the form \f[C]param=value\f[R], and may be
+specified in a single or multiple \f[C]rx config\f[R] invocations.
 Below is a list of available parameters.
 .PP
 .TS
 tab(@);
-rw(15.6n) lw(52.5n).
+rw(15.6n) lw(53.5n).
 T{
 Parameter
 T}@T{
@@ -965,115 +967,114 @@ Description
 T}
 _
 T{
-\f[C]n\f[]
+\f[C]n\f[R]
 T}@T{
 Number of samples to receive.
 0 = inf.
 T}
 T{
-\f[C]file\f[]
+\f[C]file\f[R]
 T}@T{
 Filename to write received samples to
 T}
 T{
-\f[C]format\f[]
+\f[C]format\f[R]
 T}@T{
 Output file format.
 One of the following:
 T}
 T{
 T}@T{
-\f[C]csv\f[]: CSV of SC16 Q11 samples
+\f[C]csv\f[R]: CSV of SC16 Q11 samples
 T}
 T{
 T}@T{
-\f[C]bin\f[]: Raw SC16 Q11 DAC samples
+\f[C]bin\f[R]: Raw SC16 Q11 DAC samples
 T}
 T{
-\f[C]samples\f[]
+\f[C]samples\f[R]
 T}@T{
 Number of samples per buffer to use in the asynchronous stream.
 Must be divisible by 1024 and >= 1024.
 T}
 T{
-\f[C]buffers\f[]
+\f[C]buffers\f[R]
 T}@T{
 Number of sample buffers to use in the asynchronous stream.
 The min value is 4.
 T}
 T{
-\f[C]xfers\f[]
+\f[C]xfers\f[R]
 T}@T{
 Number of simultaneous transfers to allow the asynchronous stream to
 use.
-This should be less than the \f[C]buffers\f[] parameter.
+This should be less than the \f[C]buffers\f[R] parameter.
 T}
 T{
-\f[C]timeout\f[]
+\f[C]timeout\f[R]
 T}@T{
 Data stream timeout.
-With no suffix, the default unit is \f[C]ms\f[].
+With no suffix, the default unit is \f[C]ms\f[R].
 The default value is 1000 ms (1 s).
-Valid suffixes are \f[C]ms\f[] and \f[C]s\f[].
+Valid suffixes are \f[C]ms\f[R] and \f[C]s\f[R].
 T}
 T{
-\f[C]channel\f[]
+\f[C]channel\f[R]
 T}@T{
-Comma\-delimited list of physical RF channels to use
+Comma-delimited list of physical RF channels to use
 T}
 .TE
 .PP
 Example:
 .IP \[bu] 2
-\f[C]rx\ config\ file=/tmp/data.bin\ format=bin\ n=10K\f[]
+\f[C]rx config file=/tmp/data.bin format=bin n=10K\f[R]
 .RS 2
 .PP
 Receive (10240 = 10 * 1024) samples, writing them to
-\f[C]/tmp/data.bin\f[] in the binary DAC format.
+\f[C]/tmp/data.bin\f[R] in the binary DAC format.
 .RE
 .IP \[bu] 2
-\f[C]rx\ config\ file=mimo.csv\ format=csv\ n=32768\ channel=1,2\f[]
+\f[C]rx config file=mimo.csv format=csv n=32768 channel=1,2\f[R]
 .RS 2
 .PP
 Receive 32768 samples from RX1 and RX2, outputting them to a file named
-\f[C]mimo.csv\f[], with four columns (RX1 I, RX1 Q, RX2 I, RX2 Q).
+\f[C]mimo.csv\f[R], with four columns (RX1 I, RX1 Q, RX2 I, RX2 Q).
 .RE
 .PP
 Notes:
 .IP \[bu] 2
-The \f[C]n\f[], \f[C]samples\f[], \f[C]buffers\f[], and \f[C]xfers\f[]
-parameters support the suffixes \f[C]K\f[], \f[C]M\f[], and \f[C]G\f[],
-which are multiples of 1024.
+The \f[C]n\f[R], \f[C]samples\f[R], \f[C]buffers\f[R], and
+\f[C]xfers\f[R] parameters support the suffixes \f[C]K\f[R],
+\f[C]M\f[R], and \f[C]G\f[R], which are multiples of 1024.
 .IP \[bu] 2
-An \f[C]rx\ stop\f[] followed by an \f[C]rx\ start\f[] will result in
+An \f[C]rx stop\f[R] followed by an \f[C]rx start\f[R] will result in
 the samples file being truncated.
-If this is not desired, be sure to run \f[C]rx\ config\f[] to set
+If this is not desired, be sure to run \f[C]rx config\f[R] to set
 another file before restarting the rx stream.
 .IP \[bu] 2
-For higher sample rates, it is advised that the \f[C]bin\f[]ary output
-format be used, and the output file be written to RAM (e.g.
-\f[C]/tmp\f[], \f[C]/dev/shm\f[]), if space allows.
+For higher sample rates, it is advised that the \f[C]bin\f[R]ary output
+format be used, and the output file be written to RAM
+(e.g.\ \f[C]/tmp\f[R], \f[C]/dev/shm\f[R]), if space allows.
 For larger captures at higher sample rates, consider using an SSD
 instead of a HDD.
 .IP \[bu] 2
 The CSV format produces two columns per channel, with the first two
 columns corresponding to the I,Q pair for the first channel configured
-with the \f[C]channel\f[] parameter; the next two columns corresponding
+with the \f[C]channel\f[R] parameter; the next two columns corresponding
 to the I,Q of the second channel, and so on.
 .SS trigger
 .PP
-Usage:
-\f[C]trigger\ [<trigger>\ <tx\ |\ rx>\ [<off\ slave\ master\ fire>]]\f[]
+Usage: \f[C]trigger [<trigger> <tx | rx> [<off slave master fire>]]\f[R]
 .PP
 If used without parameters, this command prints the state of all
 triggers.
-When and and supplied, the specified trigger is printed.
+When and <tx | rx> and supplied, the specified trigger is printed.
 .PP
 Below are the available options for :
 .PP
 .TS
 tab(@);
-rw(12.6n) lw(55.4n).
+rw(12.6n) lw(56.4n).
 T{
 Trigger
 T}@T{
@@ -1081,24 +1082,24 @@ Description
 T}
 _
 T{
-\f[C]J71\-4\f[]
+\f[C]J71-4\f[R]
 T}@T{
-Trigger signal is on \f[C]mini_exp1\f[] (bladeRF x40/x115, J71, pin 4).
+Trigger signal is on \f[C]mini_exp1\f[R] (bladeRF x40/x115, J71, pin 4).
 T}
 T{
-\f[C]J51\-1\f[]
+\f[C]J51-1\f[R]
 T}@T{
-Trigger signal is on \f[C]mini_exp1\f[] (bladeRF xA4/xA9, J51, pin 1).
+Trigger signal is on \f[C]mini_exp1\f[R] (bladeRF xA4/xA9, J51, pin 1).
 T}
 T{
-\f[C]Miniexp\-1\f[]
+\f[C]Miniexp-1\f[R]
 T}@T{
-Trigger signal is on \f[C]mini_exp1\f[], hardware\-independent
+Trigger signal is on \f[C]mini_exp1\f[R], hardware-independent
 T}
 .TE
 .PP
 Note that all three of the above options map to the same logical port on
-all devices (\f[C]mini_exp[1]\f[]).
+all devices (\f[C]mini_exp[1]\f[R]).
 Multiple options are provided for reverse compatibility and clarity.
 .PP
 The trigger is controlled and configured by providing the last argument,
@@ -1106,7 +1107,7 @@ which may be one of the following:
 .PP
 .TS
 tab(@);
-rw(11.7n) lw(56.4n).
+rw(11.7n) lw(57.4n).
 T{
 Command
 T}@T{
@@ -1114,22 +1115,22 @@ Description
 T}
 _
 T{
-\f[C]off\f[]
+\f[C]off\f[R]
 T}@T{
 Clears fire request and disables trigger functionality.
 T}
 T{
-\f[C]slave\f[]
+\f[C]slave\f[R]
 T}@T{
 Configures trigger as slave, clears fire request, and arms the device.
 T}
 T{
-\f[C]master\f[]
+\f[C]master\f[R]
 T}@T{
 Configures trigger as master, clears fire request, and arms the device.
 T}
 T{
-\f[C]fire\f[]
+\f[C]fire\f[R]
 T}@T{
 Sets fire request.
 Only applicable to the master.
@@ -1148,51 +1149,35 @@ It is assumed that all triggers are off initially.
 Configure designated trigger master
 .RS 4
 .PP
-\f[B]IMPORTANT\f[]
-.IP
-.nf
-\f[C]
-Never\ configure\ two\ devices\ as\ trigger\ masters\ on\ a\ single\ chain.
-Contention\ on\ the\ same\ signal\ could\ damage\ the\ devices.
-\f[]
-.fi
+\f[B]IMPORTANT\f[R]
+.PP
+Never configure two devices as trigger masters on a single chain.
+Contention on the same signal could damage the devices.
 .RE
 .IP "2." 3
 Configure all other devices as trigger slaves
 .IP "3." 3
 Configure and start transmit or receive streams.
 .RS 4
-.IP
-.nf
-\f[C]
-The\ operation\ will\ stall\ until\ the\ triggers\ fire.\ As\ such,\ sufficiently
-large\ timeouts\ should\ be\ used\ to\ allow\ the\ trigger\ signal\ to\ be\ emitted
-by\ the\ master\ and\ received\ by\ the\ slaves\ prior\ to\ libbladeRF\ returning
-BLADERF_ERR_TIMEOUT.
-\f[]
-.fi
+.PP
+The operation will stall until the triggers fire.
+As such, sufficiently large timeouts should be used to allow the trigger
+signal to be emitted by the master and received by the slaves prior to
+libbladeRF returning BLADERF_ERR_TIMEOUT.
 .RE
 .IP "4." 3
-Set fire\-request on master trigger
+Set fire-request on master trigger
 .RS 4
-.IP
-.nf
-\f[C]
-All\ devices\ will\ synchronously\ start\ transmitting\ or\ receiving\ data.
-\f[]
-.fi
+.PP
+All devices will synchronously start transmitting or receiving data.
 .RE
 .IP "5." 3
 Finish the transmit and receive tasks as usual
 .IP "6." 3
-Re\-configure the master and slaves to clear fire requests and re\-arm.
+Re-configure the master and slaves to clear fire requests and re-arm.
 .RS 4
-.IP
-.nf
-\f[C]
-Steps\ 1\ through\ 5\ may\ be\ repeated\ as\ neccessary.
-\f[]
-.fi
+.PP
+Steps 1 through 5 may be repeated as neccessary.
 .RE
 .IP "7." 3
 Disable triggering on all slaves
@@ -1208,14 +1193,14 @@ This is caused by different processing pipeline lengths of TX and RX.
 This value might change if the FPGA code is updated in the future.
 .SS tx
 .PP
-Usage: \f[C]tx\ <start\ |\ stop\ |\ wait\ |\ config\ [parameters]>\f[]
+Usage: \f[C]tx <start | stop | wait | config [parameters]>\f[R]
 .PP
 Read IQ samples from the specified file and transmit them.
 Transmission is controlled and configured by one of the following:
 .PP
 .TS
 tab(@);
-rw(11.7n) lw(56.4n).
+rw(11.7n) lw(57.4n).
 T{
 Command
 T}@T{
@@ -1223,46 +1208,47 @@ Description
 T}
 _
 T{
-\f[C]start\f[]
+\f[C]start\f[R]
 T}@T{
 Start transmitting samples
 T}
 T{
-\f[C]stop\f[]
+\f[C]stop\f[R]
 T}@T{
 Stop transmitting samples
 T}
 T{
-\f[C]wait\f[]
+\f[C]wait\f[R]
 T}@T{
 Wait for sample transmission to complete, or until a specified amount of
 time elapses
 T}
 T{
-\f[C]config\f[]
+\f[C]config\f[R]
 T}@T{
 Configure sample transmission.
 If no parameters are provided, the current parameters are printed.
 T}
 .TE
 .PP
-Running \f[C]tx\f[] without any additional commands is valid shorthand
-for \f[C]tx\ config\f[].
+Running \f[C]tx\f[R] without any additional commands is valid shorthand
+for \f[C]tx config\f[R].
 .PP
-The \f[C]wait\f[] command takes an optional \f[C]timeout\f[] parameter.
-This parameter defaults to units of milliseconds (\f[C]ms\f[]).
-The timeout unit may be specified using the \f[C]ms\f[] or \f[C]s\f[]
+The \f[C]wait\f[R] command takes an optional \f[C]timeout\f[R]
+parameter.
+This parameter defaults to units of milliseconds (\f[C]ms\f[R]).
+The timeout unit may be specified using the \f[C]ms\f[R] or \f[C]s\f[R]
 suffixes.
 If this parameter is not provided, the command will wait until the
-transmission completes or \f[C]Ctrl\-C\f[] is pressed.
+transmission completes or \f[C]Ctrl-C\f[R] is pressed.
 .PP
-Configuration parameters take the form \f[C]param=value\f[], and may be
-specified in a single or multiple \f[C]tx\ config\f[] invocations.
+Configuration parameters take the form \f[C]param=value\f[R], and may be
+specified in a single or multiple \f[C]tx config\f[R] invocations.
 Below is a list of available parameters.
 .PP
 .TS
 tab(@);
-rw(15.6n) lw(52.5n).
+rw(15.6n) lw(53.5n).
 T{
 Parameter
 T}@T{
@@ -1270,127 +1256,298 @@ Description
 T}
 _
 T{
-\f[C]file\f[]
+\f[C]file\f[R]
 T}@T{
 Filename to read samples from
 T}
 T{
-\f[C]format\f[]
+\f[C]format\f[R]
 T}@T{
 Input file format.
 One of the following:
 T}
 T{
 T}@T{
-\f[C]csv\f[]: CSV of SC16 Q11 samples ([\-2048, 2047])
+\f[C]csv\f[R]: CSV of SC16 Q11 samples ([-2048, 2047])
 T}
 T{
 T}@T{
-\f[C]bin\f[]: Raw SC16 Q11 DAC samples ([\-2048, 2047])
+\f[C]bin\f[R]: Raw SC16 Q11 DAC samples ([-2048, 2047])
 T}
 T{
-\f[C]repeat\f[]
+\f[C]repeat\f[R]
 T}@T{
 The number of times the file contents should be transmitted.
 0 implies repeat until stopped.
 T}
 T{
-\f[C]delay\f[]
+\f[C]delay\f[R]
 T}@T{
 The number of microseconds to delay between retransmitting file
 contents.
 0 implies no delay.
 T}
 T{
-\f[C]samples\f[]
+\f[C]samples\f[R]
 T}@T{
 Number of samples per buffer to use in the asynchronous stream.
 Must be divisible by 1024 and >= 1024.
 T}
 T{
-\f[C]buffers\f[]
+\f[C]buffers\f[R]
 T}@T{
 Number of sample buffers to use in the asynchronous stream.
 The min value is 4.
 T}
 T{
-\f[C]xfers\f[]
+\f[C]xfers\f[R]
 T}@T{
 Number of simultaneous transfers to allow the asynchronous stream to
 use.
-This should be < the \f[C]buffers\f[] parameter.
+This should be < the \f[C]buffers\f[R] parameter.
 T}
 T{
-\f[C]timeout\f[]
+\f[C]timeout\f[R]
 T}@T{
 Data stream timeout.
 With no suffix, the default unit is ms.
 The default value is 1000 ms (1 s).
-Valid suffixes are \[aq]ms\[aq] and \[aq]s\[aq].
+Valid suffixes are `ms' and `s'.
 T}
 T{
-\f[C]channel\f[]
+\f[C]channel\f[R]
 T}@T{
-Comma\-delimited list of physical RF channels to use
+Comma-delimited list of physical RF channels to use
 T}
 .TE
 .PP
 Example:
 .IP \[bu] 2
-\f[C]tx\ config\ file=data.bin\ format=bin\ repeat=2\ delay=250000\f[]
+\f[C]tx config file=data.bin format=bin repeat=2 delay=250000\f[R]
 .RS 2
 .PP
-Transmitting the contents of \f[C]data.bin\f[] two times, with a ~250ms
-delay between transmissions.
+Transmitting the contents of \f[C]data.bin\f[R] two times, with a
+\[ti]250ms delay between transmissions.
 .RE
 .IP \[bu] 2
-\f[C]tx\ config\ file=mimo.csv\ format=csv\ repeat=0\ channel=1,2\f[]
+\f[C]tx config file=mimo.csv format=csv repeat=0 channel=1,2\f[R]
 .RS 2
 .PP
-Transmitting the contents of \f[C]mimo.csv\f[] repeatedly, with the
+Transmitting the contents of \f[C]mimo.csv\f[R] repeatedly, with the
 first channel in the file mapped to channel TX1 and the second channel
 mapped to TX2.
 .RE
 .PP
 Notes:
 .IP \[bu] 2
-The \f[C]n\f[], \f[C]samples\f[], \f[C]buffers\f[], and \f[C]xfers\f[]
-parameters support the suffixes \f[C]K\f[], \f[C]M\f[], and \f[C]G\f[],
-which are multiples of 1024.
+The \f[C]n\f[R], \f[C]samples\f[R], \f[C]buffers\f[R], and
+\f[C]xfers\f[R] parameters support the suffixes \f[C]K\f[R],
+\f[C]M\f[R], and \f[C]G\f[R], which are multiples of 1024.
 .IP \[bu] 2
 For higher sample rates, it is advised that the input file be stored in
-RAM (e.g.
-\f[C]/tmp\f[], \f[C]/dev/shm\f[]) or on an SSD, rather than a HDD.
+RAM (e.g.\ \f[C]/tmp\f[R], \f[C]/dev/shm\f[R]) or on an SSD, rather than
+a HDD.
 .IP \[bu] 2
 The CSV format expects two columns per channel, with the first two
 columns corresponding to the I,Q pair for the first channel configured
-with the \f[C]channel\f[] parameter; the next two columns corresponding
+with the \f[C]channel\f[R] parameter; the next two columns corresponding
 to the I,Q of the second channel, and so on.
-For example, in the mimo.csv example above, \f[C]\-128,128,\-256,256\f[]
-would transmit (\-128,128) on TX1 and (\-256,256) on TX2.
+For example, in the mimo.csv example above, \f[C]-128,128,-256,256\f[R]
+would transmit (-128,128) on TX1 and (-256,256) on TX2.
 .IP \[bu] 2
 When providing CSV data, this command will first convert it to a binary
 format, stored in a file in the current working directory.
-During this process, out\-of\-range values will be clamped.
+During this process, out-of-range values will be clamped.
 .IP \[bu] 2
 When using a binary format, the user is responsible for ensuring that
 the provided data values are within the allowed range.
 This prerequisite alleviates the need for this program to perform range
-checks in time\-sensitive callbacks.
+checks in time-sensitive callbacks.
+.SS tx2
+.PP
+Usage: \f[C]tx2 <start | stop | wait | config [parameters]>\f[R]
+.PP
+Read IQ samples from the specified file and transmit them.
+Transmission is controlled and configured by one of the following:
+.PP
+.TS
+tab(@);
+rw(11.7n) lw(57.4n).
+T{
+Command
+T}@T{
+Description
+T}
+_
+T{
+\f[C]start\f[R]
+T}@T{
+Start transmitting samples
+T}
+T{
+\f[C]stop\f[R]
+T}@T{
+Stop transmitting samples
+T}
+T{
+\f[C]wait\f[R]
+T}@T{
+Wait for sample transmission to complete, or until a specified amount of
+time elapses
+T}
+T{
+\f[C]config\f[R]
+T}@T{
+Configure sample transmission.
+If no parameters are provided, the current parameters are printed.
+T}
+.TE
+.PP
+Running \f[C]tx2\f[R] without any additional commands is valid shorthand
+for \f[C]tx2 config\f[R].
+.PP
+The \f[C]wait\f[R] command takes an optional \f[C]timeout\f[R]
+parameter.
+This parameter defaults to units of milliseconds (\f[C]ms\f[R]).
+The timeout unit may be specified using the \f[C]ms\f[R] or \f[C]s\f[R]
+suffixes.
+If this parameter is not provided, the command will wait until the
+transmission completes or \f[C]Ctrl-C\f[R] is pressed.
+.PP
+Configuration parameters take the form \f[C]param=value\f[R], and may be
+specified in a single or multiple \f[C]tx2 config\f[R] invocations.
+Below is a list of available parameters.
+.PP
+.TS
+tab(@);
+rw(15.6n) lw(53.5n).
+T{
+Parameter
+T}@T{
+Description
+T}
+_
+T{
+\f[C]file\f[R]
+T}@T{
+Filename to read samples from
+T}
+T{
+\f[C]format\f[R]
+T}@T{
+Input file format.
+One of the following:
+T}
+T{
+T}@T{
+\f[C]bin\f[R]: Raw SC16 Q11 DAC samples ([-2048, 2047])
+T}
+T{
+\f[C]if_format\f[R]
+T}@T{
+Input file format.
+One of the following:
+T}
+T{
+T}@T{
+\f[C]bin\f[R] : Standard SC16Q11 format \f[C]c8\f[R] : 8-bit complex
+samples ([-128,127]) \f[C]csm\f[R] : Two bit complex samples sign/mag
+([-3,-1,1,3]) \f[C]ls2\f[R] : Labsat2 format \f[C]r8\f[R] : 8-bit real
+samples ([-128,127]) \f[C]rsm\f[R] : Two bit real samples sign/mag
+([-3,-1,1,3]) \f[C]sc16q11\f[R] : Standard SC16Q11 format
+T}
+T{
+\f[C]repeat\f[R]
+T}@T{
+The number of times the file contents should be transmitted.
+0 implies repeat until stopped.
+T}
+T{
+\f[C]delay\f[R]
+T}@T{
+The number of microseconds to delay between retransmitting file
+contents.
+0 implies no delay.
+T}
+T{
+\f[C]samples\f[R]
+T}@T{
+Number of samples per buffer to use in the asynchronous stream.
+Must be divisible by 1024 and >= 1024.
+T}
+T{
+\f[C]buffers\f[R]
+T}@T{
+Number of sample buffers to use in the asynchronous stream.
+The min value is 4.
+T}
+T{
+\f[C]xfers\f[R]
+T}@T{
+Number of simultaneous transfers to allow the asynchronous stream to
+use.
+This should be < the \f[C]buffers\f[R] parameter.
+T}
+T{
+\f[C]timeout\f[R]
+T}@T{
+Data stream timeout.
+With no suffix, the default unit is ms.
+The default value is 1000 ms (1 s).
+Valid suffixes are `ms' and `s'.
+T}
+T{
+\f[C]channel\f[R]
+T}@T{
+Comma-delimited list of physical RF channels to use
+T}
+.TE
+.PP
+Example:
+.IP \[bu] 2
+\f[C]tx2 config file=data.bin if_format=rsm repeat=2 delay=250000\f[R]
+.RS 2
+.PP
+Transmitting the contents of \f[C]data.bin\f[R] two times, with a
+\[ti]250ms delay between transmissions.
+.RE
+.IP \[bu] 2
+\f[C]tx2 config file=mimo.bin if_format=c8 repeat=0 channel=1,2\f[R]
+.RS 2
+.PP
+Transmitting the contents of \f[C]mimo.bin\f[R] repeatedly, with the
+first channel in the file mapped to channel TX1 and the second channel
+mapped to TX2.
+.RE
+.PP
+Notes:
+.IP \[bu] 2
+The \f[C]n\f[R], \f[C]samples\f[R], \f[C]buffers\f[R], and
+\f[C]xfers\f[R] parameters support the suffixes \f[C]K\f[R],
+\f[C]M\f[R], and \f[C]G\f[R], which are multiples of 1024.
+.IP \[bu] 2
+For higher sample rates, it is advised that the input file be stored in
+RAM (e.g.\ \f[C]/tmp\f[R], \f[C]/dev/shm\f[R]) or on an SSD, rather than
+a HDD.
+.IP \[bu] 2
+When using a binary format, the user is responsible for ensuring that
+the provided data values are within the allowed range.
+This prerequisite alleviates the need for this program to perform range
+checks in time-sensitive callbacks.
 .SS set
 .PP
-Usage: \f[C]set\ <parameter>\ <arguments>\f[]
+Usage: \f[C]set <parameter> <arguments>\f[R]
 .PP
-The \f[C]set\f[] command takes a parameter and an arbitrary number of
+The \f[C]set\f[R] command takes a parameter and an arbitrary number of
 arguments for that particular parameter.
-In general, \f[C]set\ <parameter>\f[] will display more help for that
+In general, \f[C]set <parameter>\f[R] will display more help for that
 parameter.
 .PP
 Common parameters:
 .PP
 .TS
 tab(@);
-rw(13.6n) lw(54.4n).
+rw(13.6n) lw(55.4n).
 T{
 Parameter
 T}@T{
@@ -1398,57 +1555,57 @@ Description
 T}
 _
 T{
-\f[C]bandwidth\f[]
+\f[C]bandwidth\f[R]
 T}@T{
 Bandwidth settings
 T}
 T{
-\f[C]frequency\f[]
+\f[C]frequency\f[R]
 T}@T{
 Frequency settings
 T}
 T{
-\f[C]agc\f[]
+\f[C]agc\f[R]
 T}@T{
 Automatic gain control
 T}
 T{
-\f[C]loopback\f[]
+\f[C]loopback\f[R]
 T}@T{
 Loopback settings
 T}
 T{
-\f[C]rx_mux\f[]
+\f[C]rx_mux\f[R]
 T}@T{
 FPGA RX FIFO input mux mode
 T}
 T{
-\f[C]gain\f[]
+\f[C]gain\f[R]
 T}@T{
 Gain settings
 T}
 T{
-\f[C]samplerate\f[]
+\f[C]samplerate\f[R]
 T}@T{
 Samplerate settings
 T}
 T{
-\f[C]trimdac\f[]
+\f[C]trimdac\f[R]
 T}@T{
 VCTCXO Trim DAC settings
 T}
 T{
-\f[C]tuning_mode\f[]
+\f[C]tuning_mode\f[R]
 T}@T{
 Tuning mode settings
 T}
 .TE
 .PP
-BladeRF1\-only parameters:
+BladeRF1-only parameters:
 .PP
 .TS
 tab(@);
-rw(13.6n) lw(54.4n).
+rw(13.6n) lw(55.4n).
 T{
 Parameter
 T}@T{
@@ -1456,73 +1613,73 @@ Description
 T}
 _
 T{
-\f[C]gpio\f[]
+\f[C]gpio\f[R]
 T}@T{
-FX3 <\-> FPGA GPIO state
+FX3 <-> FPGA GPIO state
 T}
 T{
-\f[C]lnagain\f[]
+\f[C]lnagain\f[R]
 T}@T{
 RX LNA gain, in dB.
 Values: 0, 3, 6 (deprecated)
 T}
 T{
-\f[C]rxvga1\f[]
+\f[C]rxvga1\f[R]
 T}@T{
 RXVGA1 gain, in dB.
 Range: [5, 30] (deprecated)
 T}
 T{
-\f[C]rxvga2\f[]
+\f[C]rxvga2\f[R]
 T}@T{
 RXVGA2 gain, in dB.
 Range: [0, 30] (deprecated)
 T}
 T{
-\f[C]txvga1\f[]
+\f[C]txvga1\f[R]
 T}@T{
 TXVGA1 gain, in dB.
-Range: [\-35, \-4] (deprecated)
+Range: [-35, -4] (deprecated)
 T}
 T{
-\f[C]txvga2\f[]
+\f[C]txvga2\f[R]
 T}@T{
 TXVGA2 gain, in dB.
 Range: [0, 25] (deprecated)
 T}
 T{
-\f[C]sampling\f[]
+\f[C]sampling\f[R]
 T}@T{
 External or internal sampling mode
 T}
 T{
-\f[C]smb_mode\f[]
+\f[C]smb_mode\f[R]
 T}@T{
 SMB clock port mode of operation
 T}
 T{
-\f[C]vctcxo_tamer\f[]
+\f[C]vctcxo_tamer\f[R]
 T}@T{
 VCTCXO tamer mode.
 Options: Disabled, 1PPS, 10MHz
 T}
 T{
-\f[C]xb_gpio\f[]
+\f[C]xb_gpio\f[R]
 T}@T{
 Expansion board GPIO values
 T}
 T{
-\f[C]xb_gpio_dir\f[]
+\f[C]xb_gpio_dir\f[R]
 T}@T{
 Expansion board GPIO direction (1=output, 0=input)
 T}
 .TE
 .PP
-BladeRF2\-only parameters:
+BladeRF2-only parameters:
 .PP
 .TS
 tab(@);
-rw(13.6n) lw(54.4n).
+rw(13.6n) lw(55.4n).
 T{
 Parameter
 T}@T{
@@ -1530,43 +1687,43 @@ Description
 T}
 _
 T{
-\f[C]clock_sel\f[]
+\f[C]clock_sel\f[R]
 T}@T{
 System clock selection
 T}
 T{
-\f[C]clock_out\f[]
+\f[C]clock_out\f[R]
 T}@T{
 Clock output selection
 T}
 T{
-\f[C]rssi\f[]
+\f[C]rssi\f[R]
 T}@T{
 Received signal strength indication
 T}
 T{
-\f[C]clock_ref\f[]
+\f[C]clock_ref\f[R]
 T}@T{
 Enables (1) or disables (0) the ADF4002 chip
 T}
 T{
-\f[C]refin_freq\f[]
+\f[C]refin_freq\f[R]
 T}@T{
 ADF4002 reference clock frequency
 T}
 T{
-\f[C]biastee\f[]
+\f[C]biastee\f[R]
 T}@T{
 Enables or disables the bias tee on a given channel
 T}
 T{
-\f[C]filter\f[]
+\f[C]filter\f[R]
 T}@T{
 RFIC FIR filter selection
 T}
 .TE
 .SS version
 .PP
-Usage: \f[C]version\f[]
+Usage: \f[C]version\f[R]
 .PP
 Prints version information for host software and the current device.

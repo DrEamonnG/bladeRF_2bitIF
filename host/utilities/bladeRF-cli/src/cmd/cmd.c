@@ -60,6 +60,8 @@ DECLARE_CMD(rx, "rx", "receive");
 DECLARE_CMD(set, "set", "s");
 DECLARE_CMD(trigger, "trigger", "tr");
 DECLARE_CMD(tx, "tx", "transmit");
+DECLARE_CMD(tx2, "tx2", "tx2bit", "transmit_2bit");
+
 DECLARE_CMD(version, "version", "ver", "v");
 DECLARE_CMD(xb, "xb");
 
@@ -314,6 +316,15 @@ static struct cmd const cmd_table[] = {
         FIELD_INIT(.exec, cmd_tx),
         FIELD_INIT(.desc, "Transmit IQ samples"),
         FIELD_INIT(.help, CLI_CMD_HELPTEXT_tx),
+        FIELD_INIT(.requires_device, true),
+        FIELD_INIT(.requires_fpga, true),
+        FIELD_INIT(.allow_while_streaming, true),   /* Can tx while rx'ing */
+    },
+    {
+        FIELD_INIT(.names, cmd_names_tx2),
+        FIELD_INIT(.exec, cmd_tx2),
+        FIELD_INIT(.desc, "Transmit 2-bit or 8-bit real or IQ samples"),
+        FIELD_INIT(.help, CLI_CMD_HELPTEXT_tx2),
         FIELD_INIT(.requires_device, true),
         FIELD_INIT(.requires_fpga, true),
         FIELD_INIT(.allow_while_streaming, true),   /* Can tx while rx'ing */

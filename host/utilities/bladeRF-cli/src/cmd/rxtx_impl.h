@@ -60,6 +60,19 @@ enum rxtx_fmt {
     RXTX_FMT_BIN_SC16Q11  /* Binary (big-endian), c16 I,Q */
 };
 
+/* File formats for input IF data streams prior to conversion to SC16Q11.
+ * A separate enum has been created rather than using 'rxtx_fmt' in order to
+ * avoid an possible unwanted side effects. */
+enum iftx_fmt {
+    IFTX_FMT_INVALID = -1,
+    IFTX_FMT_RSM,         /* Real binary, 2-bit sign/mag */
+    IFTX_FMT_CSM,         /* Complex binary, 2-bit sign/mag */
+    IFTX_FMT_R8,          /* Real binary, 1-byte */
+    IFTX_FMT_C8,          /* Complex binary, 1-byte */
+    IFTX_FMT_LS2,         /* Labsat 2 format */
+    IFTX_FMT_SC16Q11
+};
+
 enum rxtx_state {
     RXTX_STATE_FAIL,     /* Failed to create task */
     RXTX_STATE_INIT,     /* Task is initializing */
@@ -96,6 +109,7 @@ struct file_mgmt {
                            * of the following file metadata items */
     char *path;           /* Path associated with 'file'. */
     enum rxtx_fmt format; /* File format */
+    enum iftx_fmt if_fmt; /* IF input format for non SC16Q11 data. */
 };
 
 
@@ -148,6 +162,8 @@ extern const size_t rxtx_kmg_suffixes_len;
 /* Forward declare thread entry points implemented by rx/tx code */
 void *rx_task(void *cli_state);
 void *tx_task(void *cli_state);
+void *tx2_task(void *cli_state);
+
 
 bool rxtx_is_valid_channel(bladerf_channel ch);
 bool rxtx_is_tx(bladerf_direction dir);

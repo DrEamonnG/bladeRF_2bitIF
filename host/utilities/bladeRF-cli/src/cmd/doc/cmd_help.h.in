@@ -5,7 +5,7 @@
  *
  * This file is part of the bladeRF project
  *
- * Copyright (C) 2014-2019 Nuand LLC
+ * Copyright (C) 2014-2021 Nuand LLC
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
  * Any manual modifications to this file will be overwritten!
  * To edit the content of help strings, please edit interactive-help.md
  *
- * Last generated: Thu Jan 17 20:55:32 EST 2019 by rtucker@rho
+ * Last generated: Thu 26 Aug 2021 10:14:27 AEST by Eamonn@192.168.20.20
  */
 
 #ifndef BLADERF_CLI_DOC_CMD_HELP_H__
@@ -92,7 +92,8 @@
   "    -   calibrate table agc <rx|tx> [<f_min> <f_max> [f_inc]]\n" \
   "\n" \
   "    Similar usage as calibrate table dc except the call will set gains\n" \
-  "    to the AGC's base gain value before running calibrate table dc.\n" \
+  "    to the AGC&rsquo;s base gain value before running\n" \
+  "    calibrate table dc.\n" \
   "\n" \
 
 
@@ -136,17 +137,25 @@
   "\n" \
   "    Valid options are:\n" \
   "\n" \
-  "             Option Description\n" \
-  "      ------------- ----------------------------------------------------------\n" \
-  "                cal Calibration data\n" \
-  "                 fw Firmware\n" \
-  "             fpga40 Metadata and bitstream for 40 kLE FPGA\n" \
-  "            fpga115 Metadata and bitstream for 115 kLE FPGA\n" \
-  "             fpgaA4 Metadata and bitstream for 49 kLE (A4) FPGA\n" \
-  "             fpgaA9 Metadata and bitstream for 301 kLE (A9) FPGA\n" \
+  "      ------------------------------------------------------------------\n" \
+  "           Option Description\n" \
+  "      ----------- ------------------------------------------------------\n" \
+  "              cal Calibration data\n" \
+  "\n" \
+  "               fw Firmware\n" \
+  "\n" \
+  "           fpga40 Metadata and bitstream for 40 kLE FPGA\n" \
+  "\n" \
+  "          fpga115 Metadata and bitstream for 115 kLE FPGA\n" \
+  "\n" \
+  "           fpgaA4 Metadata and bitstream for 49 kLE (A4) FPGA\n" \
+  "\n" \
+  "           fpgaA9 Metadata and bitstream for 301 kLE (A9) FPGA\n" \
+  "      ------------------------------------------------------------------\n" \
   "\n" \
   "-   <address> - Address of data to back up. Must be erase\n" \
   "    block-aligned.\n" \
+  "\n" \
   "-   <len> - Length of region to back up. Must be erase block-aligned.\n" \
   "\n" \
   "Note: When an address and length are provided, the image type will\n" \
@@ -167,7 +176,7 @@
 #define CLI_CMD_HELPTEXT_flash_image \
   "Usage: flash_image <image> [output options]\n" \
   "\n" \
-  "Print a flash image's metadata or create a new flash image. When\n" \
+  "Print a flash image&rsquo;s metadata or create a new flash image. When\n" \
   "provided with the name of a flash image file as the only argument,\n" \
   "this command will print the metadata contents of the image.\n" \
   "\n" \
@@ -187,24 +196,24 @@
   "\n" \
   "    Valid options are:\n" \
   "\n" \
-  "      ------------------------------------------------------------------------\n" \
-  "             Option Description\n" \
-  "      ------------- ----------------------------------------------------------\n" \
-  "                cal Calibration data\n" \
+  "      ------------------------------------------------------------------\n" \
+  "           Option Description\n" \
+  "      ----------- ------------------------------------------------------\n" \
+  "              cal Calibration data\n" \
   "\n" \
-  "                 fw Firmware\n" \
+  "               fw Firmware\n" \
   "\n" \
-  "             fpga40 Metadata and bitstream for 40 kLE FPGA\n" \
+  "           fpga40 Metadata and bitstream for 40 kLE FPGA\n" \
   "\n" \
-  "            fpga115 Metadata and bitstream for 115 kLE FPGA\n" \
+  "          fpga115 Metadata and bitstream for 115 kLE FPGA\n" \
   "\n" \
-  "             fpgaA4 Metadata and bitstream for 49 kLE (A4) FPGA\n" \
+  "           fpgaA4 Metadata and bitstream for 49 kLE (A4) FPGA\n" \
   "\n" \
-  "             fpgaA9 Metadata and bitstream for 301 kLE (A9) FPGA\n" \
+  "           fpgaA9 Metadata and bitstream for 301 kLE (A9) FPGA\n" \
   "\n" \
-  "                raw Raw data. The address and length parameters must be\n" \
-  "                    provided if this type is selected.\n" \
-  "      ------------------------------------------------------------------------\n" \
+  "              raw Raw data. The address and length parameters must be\n" \
+  "                  provided if this type is selected.\n" \
+  "      ------------------------------------------------------------------\n" \
   "\n" \
   "-   serial=<serial>\n" \
   "\n" \
@@ -230,7 +239,7 @@
   "-   <output_file>\n" \
   "\n" \
   "    File to write calibration data to. When this argument is provided,\n" \
-  "    no data will be written to the device's flash.\n" \
+  "    no data will be written to the device&rsquo;s flash.\n" \
   "\n" \
 
 
@@ -254,8 +263,8 @@
 #define CLI_CMD_HELPTEXT_fw_log \
   "Usage: fw_log [filename]\n" \
   "\n" \
-  "Read the contents of the device's firmware log and write it to the\n" \
-  "specified file. If no filename is specified, the log content is\n" \
+  "Read the contents of the device&rsquo;s firmware log and write it to\n" \
+  "the specified file. If no filename is specified, the log content is\n" \
   "written to stdout.\n" \
   "\n" \
 
@@ -295,7 +304,7 @@
 #define CLI_CMD_HELPTEXT_load \
   "Usage: load <fpga|fx3> <filename>\n" \
   "\n" \
-  "Load an FPGA bitstream or program the FX3's SPI flash.\n" \
+  "Load an FPGA bitstream or program the FX3&rsquo;s SPI flash.\n" \
   "\n" \
 
 
@@ -425,7 +434,7 @@
   "Modify device MIMO operation.\n" \
   "\n" \
   "IMPORTANT: This command is deprecated and has been superseded by\n" \
-  "\"print/set smb_mode\". For usage text, run: \"set smb_mode\"\n" \
+  "\"print/set smb_mode\". For usage text, run: &ldquo;set smb_mode&rdquo;\n" \
   "\n" \
 
 
@@ -510,46 +519,77 @@
   "\n" \
   "Common parameters:\n" \
   "\n" \
-  "       Parameter Description\n" \
-  "  -------------- --------------------------------------------------------\n" \
-  "       bandwidth Bandwidth settings\n" \
-  "       frequency Frequency settings\n" \
-  "             agc Automatic gain control\n" \
-  "        loopback Loopback settings\n" \
-  "          rx_mux FPGA RX FIFO input mux setting\n" \
-  "            gain Gain settings\n" \
-  "      samplerate Samplerate settings\n" \
-  "         trimdac VCTCXO Trim DAC settings\n" \
-  "     tuning_mode Tuning mode settings\n" \
-  "        hardware Low-level hardware status\n" \
+  "  ---------------------------------------------------------------------\n" \
+  "      Parameter Description\n" \
+  "  ------------- -------------------------------------------------------\n" \
+  "      bandwidth Bandwidth settings\n" \
+  "\n" \
+  "      frequency Frequency settings\n" \
+  "\n" \
+  "            agc Automatic gain control\n" \
+  "\n" \
+  "       loopback Loopback settings\n" \
+  "\n" \
+  "         rx_mux FPGA RX FIFO input mux setting\n" \
+  "\n" \
+  "           gain Gain settings\n" \
+  "\n" \
+  "     samplerate Samplerate settings\n" \
+  "\n" \
+  "        trimdac VCTCXO Trim DAC settings\n" \
+  "\n" \
+  "    tuning_mode Tuning mode settings\n" \
+  "\n" \
+  "       hardware Low-level hardware status\n" \
+  "  ---------------------------------------------------------------------\n" \
   "\n" \
   "BladeRF1-only parameters:\n" \
   "\n" \
+  "  ----------------------------------------------------------------------\n" \
   "       Parameter Description\n" \
-  "  -------------- --------------------------------------------------------\n" \
+  "  -------------- -------------------------------------------------------\n" \
   "            gpio FX3 <-> FPGA GPIO state\n" \
+  "\n" \
   "         lnagain RX LNA gain, in dB (deprecated)\n" \
+  "\n" \
   "          rxvga1 RXVGA1 gain, in dB (deprecated)\n" \
+  "\n" \
   "          rxvga2 RXVGA2 gain, in dB (deprecated)\n" \
+  "\n" \
   "          txvga1 TXVGA1 gain, in dB (deprecated)\n" \
+  "\n" \
   "          txvga2 TXVGA2 gain, in dB (deprecated)\n" \
+  "\n" \
   "        sampling External or internal sampling mode\n" \
+  "\n" \
   "        smb_mode SMB clock port mode of operation\n" \
+  "\n" \
   "    vctcxo_tamer Current VCTCXO tamer mode\n" \
+  "\n" \
   "         xb_gpio Expansion board GPIO values\n" \
+  "\n" \
   "     xb_gpio_dir Expansion board GPIO direction (1=output, 0=input)\n" \
+  "  ----------------------------------------------------------------------\n" \
   "\n" \
   "BladeRF2-only parameters:\n" \
   "\n" \
-  "       Parameter Description\n" \
-  "  -------------- --------------------------------------------------------\n" \
-  "       clock_sel System clock selection\n" \
-  "       clock_out Clock output selection\n" \
-  "            rssi Received signal strength indication\n" \
-  "       clock_ref ADF4002 chip status\n" \
-  "      refin_freq ADF4002 reference clock frequency\n" \
-  "         biastee Current bias-tee status\n" \
-  "          filter RFIC FIR filter selection\n" \
+  "  ---------------------------------------------------------------------\n" \
+  "      Parameter Description\n" \
+  "  ------------- -------------------------------------------------------\n" \
+  "      clock_sel System clock selection\n" \
+  "\n" \
+  "      clock_out Clock output selection\n" \
+  "\n" \
+  "           rssi Received signal strength indication\n" \
+  "\n" \
+  "      clock_ref ADF4002 chip status\n" \
+  "\n" \
+  "     refin_freq ADF4002 reference clock frequency\n" \
+  "\n" \
+  "        biastee Current bias-tee status\n" \
+  "\n" \
+  "         filter RFIC FIR filter selection\n" \
+  "  ---------------------------------------------------------------------\n" \
   "\n" \
 
 
@@ -588,9 +628,10 @@
   "specified device will be loaded with and begin executing the provided\n" \
   "firmware.\n" \
   "\n" \
-  "In most cases, after successfully loading firmware into the device's\n" \
-  "RAM, users should open the device with the \"open\" command, and write\n" \
-  "the firmware to flash via \"load fx3 <firmware file>\"\n" \
+  "In most cases, after successfully loading firmware into the\n" \
+  "device&rsquo;s RAM, users should open the device with the\n" \
+  "&ldquo;open&rdquo; command, and write the firmware to flash via\n" \
+  "&ldquo;load fx3 <firmware file>&rdquo;\n" \
   "\n" \
 
 
@@ -607,19 +648,19 @@
   "Receive IQ samples and write them to the specified file. Reception is\n" \
   "controlled and configured by one of the following:\n" \
   "\n" \
-  "  ----------------------------------------------------------------------------------\n" \
-  "         Command Description\n" \
-  "  -------------- -------------------------------------------------------------------\n" \
-  "           start Start receiving samples\n" \
+  "  ---------------------------------------------------------------------\n" \
+  "      Command Description\n" \
+  "  ----------- ---------------------------------------------------------\n" \
+  "        start Start receiving samples\n" \
   "\n" \
-  "            stop Stop receiving samples\n" \
+  "         stop Stop receiving samples\n" \
   "\n" \
-  "            wait Wait for sample transmission to complete, or until a specified\n" \
-  "                 amount of time elapses\n" \
+  "         wait Wait for sample transmission to complete, or until a\n" \
+  "              specified amount of time elapses\n" \
   "\n" \
-  "          config Configure sample reception. If no parameters are provided, the\n" \
-  "                 current parameters are printed.\n" \
-  "  ----------------------------------------------------------------------------------\n" \
+  "       config Configure sample reception. If no parameters are\n" \
+  "              provided, the current parameters are printed.\n" \
+  "  ---------------------------------------------------------------------\n" \
   "\n" \
   "Running rx without any additional commands is valid shorthand for\n" \
   "rx config.\n" \
@@ -634,35 +675,36 @@
   "specified in a single or multiple rx config invocations. Below is a\n" \
   "list of available parameters.\n" \
   "\n" \
-  "  ---------------------------------------------------------------------------\n" \
-  "          Parameter Description\n" \
-  "  ----------------- ---------------------------------------------------------\n" \
-  "                  n Number of samples to receive. 0 = inf.\n" \
+  "  ---------------------------------------------------------------------\n" \
+  "        Parameter Description\n" \
+  "  --------------- -----------------------------------------------------\n" \
+  "                n Number of samples to receive. 0 = inf.\n" \
   "\n" \
-  "               file Filename to write received samples to\n" \
+  "             file Filename to write received samples to\n" \
   "\n" \
-  "             format Output file format. One of the following:\n" \
+  "           format Output file format. One of the following:\n" \
   "\n" \
-  "                    csv: CSV of SC16 Q11 samples\n" \
+  "                  csv: CSV of SC16 Q11 samples\n" \
   "\n" \
-  "                    bin: Raw SC16 Q11 DAC samples\n" \
+  "                  bin: Raw SC16 Q11 DAC samples\n" \
   "\n" \
-  "            samples Number of samples per buffer to use in the asynchronous\n" \
-  "                    stream. Must be divisible by 1024 and >= 1024.\n" \
+  "          samples Number of samples per buffer to use in the\n" \
+  "                  asynchronous stream. Must be divisible by 1024 and >=\n" \
+  "                  1024.\n" \
   "\n" \
-  "            buffers Number of sample buffers to use in the asynchronous\n" \
-  "                    stream. The min value is 4.\n" \
+  "          buffers Number of sample buffers to use in the asynchronous\n" \
+  "                  stream. The min value is 4.\n" \
   "\n" \
-  "              xfers Number of simultaneous transfers to allow the\n" \
-  "                    asynchronous stream to use. This should be less than the\n" \
-  "                    buffers parameter.\n" \
+  "            xfers Number of simultaneous transfers to allow the\n" \
+  "                  asynchronous stream to use. This should be less than\n" \
+  "                  the buffers parameter.\n" \
   "\n" \
-  "            timeout Data stream timeout. With no suffix, the default unit is\n" \
-  "                    ms. The default value is 1000 ms (1 s). Valid suffixes\n" \
-  "                    are ms and s.\n" \
+  "          timeout Data stream timeout. With no suffix, the default unit\n" \
+  "                  is ms. The default value is 1000 ms (1 s). Valid\n" \
+  "                  suffixes are ms and s.\n" \
   "\n" \
-  "            channel Comma-delimited list of physical RF channels to use\n" \
-  "  ---------------------------------------------------------------------------\n" \
+  "          channel Comma-delimited list of physical RF channels to use\n" \
+  "  ---------------------------------------------------------------------\n" \
   "\n" \
   "Example:\n" \
   "\n" \
@@ -684,9 +726,9 @@
   "    being truncated. If this is not desired, be sure to run rx config\n" \
   "    to set another file before restarting the rx stream.\n" \
   "-   For higher sample rates, it is advised that the binary output\n" \
-  "    format be used, and the output file be written to RAM (e.g. /tmp,\n" \
-  "    /dev/shm), if space allows. For larger captures at higher sample\n" \
-  "    rates, consider using an SSD instead of a HDD.\n" \
+  "    format be used, and the output file be written to RAM\n" \
+  "    (e.g.&nbsp;/tmp, /dev/shm), if space allows. For larger captures\n" \
+  "    at higher sample rates, consider using an SSD instead of a HDD.\n" \
   "-   The CSV format produces two columns per channel, with the first\n" \
   "    two columns corresponding to the I,Q pair for the first channel\n" \
   "    configured with the channel parameter; the next two columns\n" \
@@ -698,15 +740,22 @@
   "Usage: trigger [<trigger> <tx | rx> [<off slave master fire>]]\n" \
   "\n" \
   "If used without parameters, this command prints the state of all\n" \
-  "triggers. When and and supplied, the specified trigger is printed.\n" \
+  "triggers. When and <tx | rx> and supplied, the specified trigger is\n" \
+  "printed.\n" \
   "\n" \
   "Below are the available options for :\n" \
   "\n" \
-  "                Trigger Description\n" \
-  "  --------------------- ------------------------------------------------------------------------------------------------\n" \
-  "                  J71-4 Trigger signal is on mini_exp1 (bladeRF x40/x115, J71, pin 4).\n" \
-  "                  J51-1 Trigger signal is on mini_exp1 (bladeRF xA4/xA9, J51, pin 1).\n" \
-  "              Miniexp-1 Trigger signal is on mini_exp1, hardware-independent\n" \
+  "  ---------------------------------------------------------------------\n" \
+  "       Trigger Description\n" \
+  "  ------------ --------------------------------------------------------\n" \
+  "         J71-4 Trigger signal is on mini_exp1 (bladeRF x40/x115, J71,\n" \
+  "               pin 4).\n" \
+  "\n" \
+  "         J51-1 Trigger signal is on mini_exp1 (bladeRF xA4/xA9, J51,\n" \
+  "               pin 1).\n" \
+  "\n" \
+  "     Miniexp-1 Trigger signal is on mini_exp1, hardware-independent\n" \
+  "  ---------------------------------------------------------------------\n" \
   "\n" \
   "Note that all three of the above options map to the same logical port\n" \
   "on all devices (mini_exp[1]). Multiple options are provided for\n" \
@@ -715,12 +764,19 @@
   "The trigger is controlled and configured by providing the last\n" \
   "argument, which may be one of the following:\n" \
   "\n" \
-  "           Command Description\n" \
-  "  ---------------- -----------------------------------------------------------------------------\n" \
-  "               off Clears fire request and disables trigger functionality.\n" \
-  "             slave Configures trigger as slave, clears fire request, and arms the device.\n" \
-  "            master Configures trigger as master, clears fire request, and arms the device.\n" \
-  "              fire Sets fire request. Only applicable to the master.\n" \
+  "  ---------------------------------------------------------------------\n" \
+  "      Command Description\n" \
+  "  ----------- ---------------------------------------------------------\n" \
+  "          off Clears fire request and disables trigger functionality.\n" \
+  "\n" \
+  "        slave Configures trigger as slave, clears fire request, and\n" \
+  "              arms the device.\n" \
+  "\n" \
+  "       master Configures trigger as master, clears fire request, and\n" \
+  "              arms the device.\n" \
+  "\n" \
+  "         fire Sets fire request. Only applicable to the master.\n" \
+  "  ---------------------------------------------------------------------\n" \
   "\n" \
   "A trigger chain consists of a single or multiple bladeRF units and may\n" \
   "contain TX and RX modules. If multiple bladeRF units are used they\n" \
@@ -733,28 +789,29 @@
   "\n" \
   "    IMPORTANT\n" \
   "\n" \
-  "        Never configure two devices as trigger masters on a single chain.\n" \
-  "        Contention on the same signal could damage the devices.\n" \
+  "    Never configure two devices as trigger masters on a single chain.\n" \
+  "    Contention on the same signal could damage the devices.\n" \
   "\n" \
   "2.  Configure all other devices as trigger slaves\n" \
   "\n" \
   "3.  Configure and start transmit or receive streams.\n" \
   "\n" \
-  "        The operation will stall until the triggers fire. As such, sufficiently\n" \
-  "        large timeouts should be used to allow the trigger signal to be emitted\n" \
-  "        by the master and received by the slaves prior to libbladeRF returning\n" \
-  "        BLADERF_ERR_TIMEOUT.\n" \
+  "    The operation will stall until the triggers fire. As such,\n" \
+  "    sufficiently large timeouts should be used to allow the trigger\n" \
+  "    signal to be emitted by the master and received by the slaves\n" \
+  "    prior to libbladeRF returning BLADERF_ERR_TIMEOUT.\n" \
   "\n" \
   "4.  Set fire-request on master trigger\n" \
   "\n" \
-  "        All devices will synchronously start transmitting or receiving data.\n" \
+  "    All devices will synchronously start transmitting or receiving\n" \
+  "    data.\n" \
   "\n" \
   "5.  Finish the transmit and receive tasks as usual\n" \
   "\n" \
   "6.  Re-configure the master and slaves to clear fire requests and\n" \
   "    re-arm.\n" \
   "\n" \
-  "        Steps 1 through 5 may be repeated as neccessary.\n" \
+  "    Steps 1 through 5 may be repeated as neccessary.\n" \
   "\n" \
   "7.  Disable triggering on all slaves\n" \
   "\n" \
@@ -776,19 +833,19 @@
   "Read IQ samples from the specified file and transmit them.\n" \
   "Transmission is controlled and configured by one of the following:\n" \
   "\n" \
-  "  ----------------------------------------------------------------------------------------\n" \
-  "          Command Description\n" \
-  "  --------------- ------------------------------------------------------------------------\n" \
-  "            start Start transmitting samples\n" \
+  "  ---------------------------------------------------------------------\n" \
+  "      Command Description\n" \
+  "  ----------- ---------------------------------------------------------\n" \
+  "        start Start transmitting samples\n" \
   "\n" \
-  "             stop Stop transmitting samples\n" \
+  "         stop Stop transmitting samples\n" \
   "\n" \
-  "             wait Wait for sample transmission to complete, or until a specified amount of\n" \
-  "                  time elapses\n" \
+  "         wait Wait for sample transmission to complete, or until a\n" \
+  "              specified amount of time elapses\n" \
   "\n" \
-  "           config Configure sample transmission. If no parameters are provided, the\n" \
-  "                  current parameters are printed.\n" \
-  "  ----------------------------------------------------------------------------------------\n" \
+  "       config Configure sample transmission. If no parameters are\n" \
+  "              provided, the current parameters are printed.\n" \
+  "  ---------------------------------------------------------------------\n" \
   "\n" \
   "Running tx without any additional commands is valid shorthand for\n" \
   "tx config.\n" \
@@ -803,39 +860,40 @@
   "specified in a single or multiple tx config invocations. Below is a\n" \
   "list of available parameters.\n" \
   "\n" \
-  "  ---------------------------------------------------------------------------\n" \
-  "          Parameter Description\n" \
-  "  ----------------- ---------------------------------------------------------\n" \
-  "               file Filename to read samples from\n" \
+  "  ---------------------------------------------------------------------\n" \
+  "        Parameter Description\n" \
+  "  --------------- -----------------------------------------------------\n" \
+  "             file Filename to read samples from\n" \
   "\n" \
-  "             format Input file format. One of the following:\n" \
+  "           format Input file format. One of the following:\n" \
   "\n" \
-  "                    csv: CSV of SC16 Q11 samples ([-2048, 2047])\n" \
+  "                  csv: CSV of SC16 Q11 samples ([-2048, 2047])\n" \
   "\n" \
-  "                    bin: Raw SC16 Q11 DAC samples ([-2048, 2047])\n" \
+  "                  bin: Raw SC16 Q11 DAC samples ([-2048, 2047])\n" \
   "\n" \
-  "             repeat The number of times the file contents should be\n" \
-  "                    transmitted. 0 implies repeat until stopped.\n" \
+  "           repeat The number of times the file contents should be\n" \
+  "                  transmitted. 0 implies repeat until stopped.\n" \
   "\n" \
-  "              delay The number of microseconds to delay between\n" \
-  "                    retransmitting file contents. 0 implies no delay.\n" \
+  "            delay The number of microseconds to delay between\n" \
+  "                  retransmitting file contents. 0 implies no delay.\n" \
   "\n" \
-  "            samples Number of samples per buffer to use in the asynchronous\n" \
-  "                    stream. Must be divisible by 1024 and >= 1024.\n" \
+  "          samples Number of samples per buffer to use in the\n" \
+  "                  asynchronous stream. Must be divisible by 1024 and >=\n" \
+  "                  1024.\n" \
   "\n" \
-  "            buffers Number of sample buffers to use in the asynchronous\n" \
-  "                    stream. The min value is 4.\n" \
+  "          buffers Number of sample buffers to use in the asynchronous\n" \
+  "                  stream. The min value is 4.\n" \
   "\n" \
-  "              xfers Number of simultaneous transfers to allow the\n" \
-  "                    asynchronous stream to use. This should be < the buffers\n" \
-  "                    parameter.\n" \
+  "            xfers Number of simultaneous transfers to allow the\n" \
+  "                  asynchronous stream to use. This should be < the\n" \
+  "                  buffers parameter.\n" \
   "\n" \
-  "            timeout Data stream timeout. With no suffix, the default unit is\n" \
-  "                    ms. The default value is 1000 ms (1 s). Valid suffixes\n" \
-  "                    are 'ms' and 's'.\n" \
+  "          timeout Data stream timeout. With no suffix, the default unit\n" \
+  "                  is ms. The default value is 1000 ms (1 s). Valid\n" \
+  "                  suffixes are &lsquo;ms&rsquo; and &lsquo;s&rsquo;.\n" \
   "\n" \
-  "            channel Comma-delimited list of physical RF channels to use\n" \
-  "  ---------------------------------------------------------------------------\n" \
+  "          channel Comma-delimited list of physical RF channels to use\n" \
+  "  ---------------------------------------------------------------------\n" \
   "\n" \
   "Example:\n" \
   "\n" \
@@ -855,8 +913,8 @@
   "-   The n, samples, buffers, and xfers parameters support the suffixes\n" \
   "    K, M, and G, which are multiples of 1024.\n" \
   "-   For higher sample rates, it is advised that the input file be\n" \
-  "    stored in RAM (e.g. /tmp, /dev/shm) or on an SSD, rather than a\n" \
-  "    HDD.\n" \
+  "    stored in RAM (e.g.&nbsp;/tmp, /dev/shm) or on an SSD, rather than\n" \
+  "    a HDD.\n" \
   "-   The CSV format expects two columns per channel, with the first two\n" \
   "    columns corresponding to the I,Q pair for the first channel\n" \
   "    configured with the channel parameter; the next two columns\n" \
@@ -873,6 +931,108 @@
   "\n" \
 
 
+#define CLI_CMD_HELPTEXT_tx2 \
+  "Usage: tx2 <start | stop | wait | config [parameters]>\n" \
+  "\n" \
+  "Read IQ samples from the specified file and transmit them.\n" \
+  "Transmission is controlled and configured by one of the following:\n" \
+  "\n" \
+  "  ---------------------------------------------------------------------\n" \
+  "      Command Description\n" \
+  "  ----------- ---------------------------------------------------------\n" \
+  "        start Start transmitting samples\n" \
+  "\n" \
+  "         stop Stop transmitting samples\n" \
+  "\n" \
+  "         wait Wait for sample transmission to complete, or until a\n" \
+  "              specified amount of time elapses\n" \
+  "\n" \
+  "       config Configure sample transmission. If no parameters are\n" \
+  "              provided, the current parameters are printed.\n" \
+  "  ---------------------------------------------------------------------\n" \
+  "\n" \
+  "Running tx2 without any additional commands is valid shorthand for\n" \
+  "tx2 config.\n" \
+  "\n" \
+  "The wait command takes an optional timeout parameter. This parameter\n" \
+  "defaults to units of milliseconds (ms). The timeout unit may be\n" \
+  "specified using the ms or s suffixes. If this parameter is not\n" \
+  "provided, the command will wait until the transmission completes or\n" \
+  "Ctrl-C is pressed.\n" \
+  "\n" \
+  "Configuration parameters take the form param=value, and may be\n" \
+  "specified in a single or multiple tx2 config invocations. Below is a\n" \
+  "list of available parameters.\n" \
+  "\n" \
+  "  ---------------------------------------------------------------------\n" \
+  "        Parameter Description\n" \
+  "  --------------- -----------------------------------------------------\n" \
+  "             file Filename to read samples from\n" \
+  "\n" \
+  "           format Input file format. One of the following:\n" \
+  "\n" \
+  "                  bin: Raw SC16 Q11 DAC samples ([-2048, 2047])\n" \
+  "\n" \
+  "        if_format Input file format. One of the following:\n" \
+  "\n" \
+  "                  bin : Standard SC16Q11 format c8 : 8-bit complex\n" \
+  "                  samples ([-128,127]) csm : Two bit complex samples\n" \
+  "                  sign/mag ([-3,-1,1,3]) ls2 : Labsat2 format r8 :\n" \
+  "                  8-bit real samples ([-128,127]) rsm : Two bit real\n" \
+  "                  samples sign/mag ([-3,-1,1,3]) sc16q11 : Standard\n" \
+  "                  SC16Q11 format\n" \
+  "\n" \
+  "           repeat The number of times the file contents should be\n" \
+  "                  transmitted. 0 implies repeat until stopped.\n" \
+  "\n" \
+  "            delay The number of microseconds to delay between\n" \
+  "                  retransmitting file contents. 0 implies no delay.\n" \
+  "\n" \
+  "          samples Number of samples per buffer to use in the\n" \
+  "                  asynchronous stream. Must be divisible by 1024 and >=\n" \
+  "                  1024.\n" \
+  "\n" \
+  "          buffers Number of sample buffers to use in the asynchronous\n" \
+  "                  stream. The min value is 4.\n" \
+  "\n" \
+  "            xfers Number of simultaneous transfers to allow the\n" \
+  "                  asynchronous stream to use. This should be < the\n" \
+  "                  buffers parameter.\n" \
+  "\n" \
+  "          timeout Data stream timeout. With no suffix, the default unit\n" \
+  "                  is ms. The default value is 1000 ms (1 s). Valid\n" \
+  "                  suffixes are &lsquo;ms&rsquo; and &lsquo;s&rsquo;.\n" \
+  "\n" \
+  "          channel Comma-delimited list of physical RF channels to use\n" \
+  "  ---------------------------------------------------------------------\n" \
+  "\n" \
+  "Example:\n" \
+  "\n" \
+  "-   tx2 config file=data.bin if_format=rsm repeat=2 delay=250000\n" \
+  "\n" \
+  "    Transmitting the contents of data.bin two times, with a ~250ms\n" \
+  "    delay between transmissions.\n" \
+  "\n" \
+  "-   tx2 config file=mimo.bin if_format=c8 repeat=0 channel=1,2\n" \
+  "\n" \
+  "    Transmitting the contents of mimo.bin repeatedly, with the first\n" \
+  "    channel in the file mapped to channel TX1 and the second channel\n" \
+  "    mapped to TX2.\n" \
+  "\n" \
+  "Notes:\n" \
+  "\n" \
+  "-   The n, samples, buffers, and xfers parameters support the suffixes\n" \
+  "    K, M, and G, which are multiples of 1024.\n" \
+  "-   For higher sample rates, it is advised that the input file be\n" \
+  "    stored in RAM (e.g.&nbsp;/tmp, /dev/shm) or on an SSD, rather than\n" \
+  "    a HDD.\n" \
+  "-   When using a binary format, the user is responsible for ensuring\n" \
+  "    that the provided data values are within the allowed range. This\n" \
+  "    prerequisite alleviates the need for this program to perform range\n" \
+  "    checks in time-sensitive callbacks.\n" \
+  "\n" \
+
+
 #define CLI_CMD_HELPTEXT_set \
   "Usage: set <parameter> <arguments>\n" \
   "\n" \
@@ -882,45 +1042,75 @@
   "\n" \
   "Common parameters:\n" \
   "\n" \
-  "       Parameter Description\n" \
-  "  -------------- --------------------------------------------------------\n" \
-  "       bandwidth Bandwidth settings\n" \
-  "       frequency Frequency settings\n" \
-  "             agc Automatic gain control\n" \
-  "        loopback Loopback settings\n" \
-  "          rx_mux FPGA RX FIFO input mux mode\n" \
-  "            gain Gain settings\n" \
-  "      samplerate Samplerate settings\n" \
-  "         trimdac VCTCXO Trim DAC settings\n" \
-  "     tuning_mode Tuning mode settings\n" \
+  "  ---------------------------------------------------------------------\n" \
+  "      Parameter Description\n" \
+  "  ------------- -------------------------------------------------------\n" \
+  "      bandwidth Bandwidth settings\n" \
+  "\n" \
+  "      frequency Frequency settings\n" \
+  "\n" \
+  "            agc Automatic gain control\n" \
+  "\n" \
+  "       loopback Loopback settings\n" \
+  "\n" \
+  "         rx_mux FPGA RX FIFO input mux mode\n" \
+  "\n" \
+  "           gain Gain settings\n" \
+  "\n" \
+  "     samplerate Samplerate settings\n" \
+  "\n" \
+  "        trimdac VCTCXO Trim DAC settings\n" \
+  "\n" \
+  "    tuning_mode Tuning mode settings\n" \
+  "  ---------------------------------------------------------------------\n" \
   "\n" \
   "BladeRF1-only parameters:\n" \
   "\n" \
+  "  ----------------------------------------------------------------------\n" \
   "       Parameter Description\n" \
-  "  -------------- --------------------------------------------------------\n" \
+  "  -------------- -------------------------------------------------------\n" \
   "            gpio FX3 <-> FPGA GPIO state\n" \
+  "\n" \
   "         lnagain RX LNA gain, in dB. Values: 0, 3, 6 (deprecated)\n" \
+  "\n" \
   "          rxvga1 RXVGA1 gain, in dB. Range: [5, 30] (deprecated)\n" \
+  "\n" \
   "          rxvga2 RXVGA2 gain, in dB. Range: [0, 30] (deprecated)\n" \
+  "\n" \
   "          txvga1 TXVGA1 gain, in dB. Range: [-35, -4] (deprecated)\n" \
+  "\n" \
   "          txvga2 TXVGA2 gain, in dB. Range: [0, 25] (deprecated)\n" \
+  "\n" \
   "        sampling External or internal sampling mode\n" \
+  "\n" \
   "        smb_mode SMB clock port mode of operation\n" \
+  "\n" \
   "    vctcxo_tamer VCTCXO tamer mode. Options: Disabled, 1PPS, 10MHz\n" \
+  "\n" \
   "         xb_gpio Expansion board GPIO values\n" \
+  "\n" \
   "     xb_gpio_dir Expansion board GPIO direction (1=output, 0=input)\n" \
+  "  ----------------------------------------------------------------------\n" \
   "\n" \
   "BladeRF2-only parameters:\n" \
   "\n" \
-  "       Parameter Description\n" \
-  "  -------------- --------------------------------------------------------\n" \
-  "       clock_sel System clock selection\n" \
-  "       clock_out Clock output selection\n" \
-  "            rssi Received signal strength indication\n" \
-  "       clock_ref Enables (1) or disables (0) the ADF4002 chip\n" \
-  "      refin_freq ADF4002 reference clock frequency\n" \
-  "         biastee Enables or disables the bias tee on a given channel\n" \
-  "          filter RFIC FIR filter selection\n" \
+  "  ---------------------------------------------------------------------\n" \
+  "      Parameter Description\n" \
+  "  ------------- -------------------------------------------------------\n" \
+  "      clock_sel System clock selection\n" \
+  "\n" \
+  "      clock_out Clock output selection\n" \
+  "\n" \
+  "           rssi Received signal strength indication\n" \
+  "\n" \
+  "      clock_ref Enables (1) or disables (0) the ADF4002 chip\n" \
+  "\n" \
+  "     refin_freq ADF4002 reference clock frequency\n" \
+  "\n" \
+  "        biastee Enables or disables the bias tee on a given channel\n" \
+  "\n" \
+  "         filter RFIC FIR filter selection\n" \
+  "  ---------------------------------------------------------------------\n" \
   "\n" \
 
 
