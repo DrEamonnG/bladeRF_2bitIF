@@ -137,14 +137,15 @@ classdef bladeRF < handle
             end
         end
 
-        function [major, minor, patch] = version()
+        function [major, minor, patch, version_string] = version()
         % Get the version of this MATLAB libbladeRF wrapper.
         %
-        % [major, minor, patch] = bladeRF.version()
+        % [major, minor, patch, version_string] = bladeRF.version()
         %
-            major = 0;
-            minor = 1;
-            patch = 2;
+            major = 2;
+            minor = 4;
+            patch = 0;
+            version_string = char(sprintf("%d.%d.%d", major, minor, patch));
         end
 
         function [major, minor, patch, version_string] = library_version()
@@ -225,6 +226,40 @@ classdef bladeRF < handle
 
             bladeRF.load_library();
             calllib('libbladeRF', 'bladerf_log_set_verbosity', enum_val);
+        end
+
+
+        function int32 = str2ch(str)
+        % Convert channel string to integer constant
+        %
+        % bladeRF.str2ch(channel_string)
+        %
+        % Options for chanel_string are:
+        %   'BLADERF_MODULE_RX'
+        %   'BLADERF_CHANNEL_RX1'
+        %   'BLADERF_CHANNEL_RX2'
+        %   'BLADERF_MODULE_TX'
+        %   'BLADERF_CHANNEL_TX1'
+        %   'BLADERF_CHANNEL_TX2'
+        %
+            str = upper(str);
+
+            switch str
+                case 'BLADERF_MODULE_RX'
+                    int32 = 0;
+                case 'BLADERF_CHANNEL_RX1'
+                    int32 = 0;
+                case 'BLADERF_CHANNEL_RX2'
+                    int32 = 2;
+                case 'BLADERF_MODULE_TX'
+                    int32 = 1;
+                case 'BLADERF_CHANNEL_TX1'
+                    int32 = 1;
+                case 'BLADERF_CHANNEL_TX2'
+                    int32 = 3;
+                otherwise
+                    error('Invalid channel string: "%s"', str);
+            end
         end
 
         function build_thunk
@@ -456,7 +491,8 @@ classdef bladeRF < handle
             %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
             [obj.versions.matlab.major, ...
              obj.versions.matlab.minor, ...
-             obj.versions.matlab.patch] = bladeRF.version();
+             obj.versions.matlab.patch, ...
+             obj.versions.matlab.string ] = bladeRF.version();
 
             [obj.versions.libbladeRF.major, ...
              obj.versions.libbladeRF.minor, ...
@@ -467,13 +503,19 @@ classdef bladeRF < handle
             [~, ver_ptr] = bladeRF.empty_version();
             status = calllib('libbladeRF', 'bladerf_fw_version', dptr, ver_ptr);
             bladeRF.check_status('bladerf_fw_version', status);
-            obj.versions.firmware = ver_ptr.value;
+            obj.versions.firmware.major  = ver_ptr.value.major;
+            obj.versions.firmware.minor  = ver_ptr.value.minor;
+            obj.versions.firmware.patch  = ver_ptr.value.patch;
+            obj.versions.firmware.string = ver_ptr.value.describe;
 
             % FPGA version
             [~, ver_ptr] = bladeRF.empty_version();
             status = calllib('libbladeRF', 'bladerf_fpga_version', dptr, ver_ptr);
             bladeRF.check_status('bladerf_fpga_version', status);
-            obj.versions.fpga = ver_ptr.value;
+            obj.versions.fpga.major  = ver_ptr.value.major;
+            obj.versions.fpga.minor  = ver_ptr.value.minor;
+            obj.versions.fpga.patch  = ver_ptr.value.patch;
+            obj.versions.fpga.string = ver_ptr.value.describe;
 
             %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
             % Populate information
@@ -510,6 +552,9 @@ classdef bladeRF < handle
                     obj.info.gen = 1;
                 case 'BLADERF_FPGA_A4'
                     obj.info.fpga_size = 'A4 49 kLE';
+                    obj.info.gen = 2;
+                case 'BLADERF_FPGA_A5'
+                    obj.info.fpga_size = 'A5 77 kLE';
                     obj.info.gen = 2;
                 case 'BLADERF_FPGA_A9'
                     obj.info.fpga_size = 'A9 301 kLE';
@@ -881,7 +926,7 @@ classdef bladeRF < handle
                 case 'RF_LNA1'
                 case 'RF_LNA2'
                 case 'RF_LNA3'
-
+                case 'RFIC_BIST'
                 otherwise
                     error(['Invalid loopback mode: ' mode]);
             end
@@ -919,10 +964,10 @@ classdef bladeRF < handle
 
             if nargin < 2
                 module = 'ALL';
-            else
-                module = strcat('BLADERF_DC_CAL_', upper(module));
             end
 
+            module = strcat('BLADERF_DC_CAL_', upper(module));
+            
             switch module
                 case { 'BLADERF_DC_CAL_LPF_TUNING', ...
                        'BLADERF_DC_CAL_RX_LPF',     ...
@@ -953,7 +998,11 @@ classdef bladeRF < handle
                 config_backup      = obj.tx.config;
                 loopback_backup    = obj.loopback;
 
-                obj.loopback = 'BB_TXVGA1_RXVGA2';
+                if obj.info.gen==1
+                    obj.loopback = 'BB_TXVGA1_RXVGA2';
+                else
+                    obj.loopback = 'FIRMWARE'
+                end
 
                 obj.tx.config.num_buffers   = 16;
                 obj.tx.config.num_transfers = 8;
