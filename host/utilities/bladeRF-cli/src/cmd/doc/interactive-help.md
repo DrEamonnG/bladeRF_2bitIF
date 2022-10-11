@@ -119,6 +119,8 @@ Parameters:
 
     `fpgaA4`    Metadata and bitstream for 49 kLE (A4) FPGA
 
+    `fpgaA5`    Metadata and bitstream for 77 kLE (A5) FPGA
+
     `fpgaA9`    Metadata and bitstream for 301 kLE (A9) FPGA
     ------------------------------------------------------------------
 
@@ -176,6 +178,8 @@ The following options may be used to create a new flash image.
     `fpga115`   Metadata and bitstream for 115 kLE FPGA
 
     `fpgaA4`    Metadata and bitstream for 49 kLE (A4) FPGA
+
+    `fpgaA5`    Metadata and bitstream for 77 kLE (A5) FPGA
 
     `fpgaA9`    Metadata and bitstream for 301 kLE (A9) FPGA
 
@@ -724,7 +728,7 @@ Below are the available options for <trigger>:
 ------------ ---------------------------------------------------------
 `J71-4`      Trigger signal is on `mini_exp1` (bladeRF x40/x115, J71, pin 4).
 
-`J51-1`      Trigger signal is on `mini_exp1` (bladeRF xA4/xA9, J51, pin 1).
+`J51-1`      Trigger signal is on `mini_exp1` (bladeRF xA4/xA5/xA9, J51, pin 1).
 
 `Miniexp-1`  Trigger signal is on `mini_exp1`, hardware-independent
 
@@ -946,12 +950,13 @@ available parameters.
 `if_format`     Input file format. One of the following:
 
                 `bin`     :  Standard SC16Q11 format
-		            `c8`      :  8-bit complex samples ([-128,127])
-		            `csm`     :  Two bit complex samples sign/mag ([-3,-1,1,3])
+                `c8`      :  8-bit complex samples ([-128,127])
+                `csm`     :  Two bit complex samples sign/mag ([-3,-1,1,3])
                 `ls2`     :  Labsat2 format
                 `r8`      :  8-bit real samples ([-128,127])
-		            `rsm`     :  Two bit real samples sign/mag ([-3,-1,1,3])
+                `rsm`     :  Two bit real samples sign/mag ([-3,-1,1,3])
                 `sc16q11` :  Standard SC16Q11 format
+                `skydel`  :  Skydel IQ format
 
 `repeat`        The number of times the file contents should be
                 transmitted. 0 implies repeat until stopped.
